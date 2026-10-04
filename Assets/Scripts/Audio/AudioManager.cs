@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // 게임 전체의 소리(BGM, 버튼 효과음, 공격/파괴 효과음)를 관리하는 스크립트입니다.
 // 씬이 바뀌어도 사라지지 않고, 게임 안에 딱 하나만 존재합니다.
@@ -55,13 +56,37 @@ public class AudioManager : MonoBehaviour
         combatSource.volume = CombatVolume;
     }
 
+    // 씬이 새로 열릴 때마다 알림을 받습니다.
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
-        PlayBgmPlaylist();
+        // 곧 지워질 복제본(두 번째 AudioManager)은 아무것도 하지 않습니다.
+        if (Instance != this) return;
+
+        if (!isBgmPlaylistOn) PlayBgmPlaylist();
+    }
+
+    // 게임 오버로 BGM이 멈춘 뒤 "다시 하기"나 "메인 메뉴"로 씬이 바뀌면 BGM을 다시 틉니다.
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (Instance != this) return;
+
+        if (!isBgmPlaylistOn) PlayBgmPlaylist();
     }
 
     private void Update()
     {
+        if (Instance != this) return;
+
         // 지금 곡이 끝나면 다음 곡을 재생합니다.
         if (isBgmPlaylistOn && !bgmSource.isPlaying)
         {
