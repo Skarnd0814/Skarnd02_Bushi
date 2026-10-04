@@ -2049,8 +2049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a239480f168f2dc46a360f7de5e837af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  startButton: {fileID: 1508063102}
   settingsButton: {fileID: 268460636}
   settingsPopup: {fileID: 313529472}
+  inGameSceneName: InGameScene
 --- !u!1 &1712198713
 GameObject:
   m_ObjectHideFlags: 0
