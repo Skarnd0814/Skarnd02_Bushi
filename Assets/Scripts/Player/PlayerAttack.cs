@@ -24,8 +24,13 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Vector2 hitBoxOffset = new Vector2(0.6f, 1.3f);
     [SerializeField] private Vector2 hitBoxSize = new Vector2(1.4f, 1.8f);
 
-    [Header("소리")]
+    [Header("소리 (비워 두면 재생하지 않습니다)")]
+    [Tooltip("공격 버튼을 누르는 순간 (칼 휘두르는 소리)")]
     [SerializeField] private AudioClip attackSound;
+    [Tooltip("공격 성공: 이번 공격에서 첫 장애물을 부순 순간")]
+    [SerializeField] private AudioClip successSound;
+    [Tooltip("공격 실패: 판정이 끝났는데 아무것도 못 부쉈을 때")]
+    [SerializeField] private AudioClip failSound;
 
     private PlayerController controller;
     private ContactFilter2D hitFilter;
@@ -103,10 +108,7 @@ public class PlayerAttack : MonoBehaviour
         attackStartTime = Time.time;
         controller.MovementLocked = true;
 
-        if (attackSound != null && AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlayCombatSound(attackSound);
-        }
+        PlaySound(attackSound);
     }
 
     private void EndAttack()
@@ -127,6 +129,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 obstacle.Break();
                 destroyedCount++;
+
+                // 성공 소리는 칼에 맞은 순간 바로, 한 번의 공격에 한 번만 재생합니다.
+                if (destroyedCount == 1) PlaySound(successSound);
             }
         }
     }
@@ -140,11 +145,22 @@ public class PlayerAttack : MonoBehaviour
         CooldownDuration = success ? successCooldown : failCooldown;
         cooldownEndTime = Time.time + CooldownDuration;
 
+        if (!success) PlaySound(failSound);
+
         Debug.Log(success
             ? $"공격 성공! 장애물 {destroyedCount}개 파괴, 쿨타임 {CooldownDuration}초"
             : $"공격 실패... 쿨타임 {CooldownDuration}초");
 
         AttackJudged?.Invoke(destroyedCount);
+    }
+
+    // 공격/파괴 소리는 설정창의 EFFECT 볼륨을 따르는 스피커로 재생합니다.
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayCombatSound(clip);
+        }
     }
 
     private Vector2 GetHitBoxCenter()
