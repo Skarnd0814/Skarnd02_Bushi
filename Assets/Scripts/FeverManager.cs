@@ -33,6 +33,10 @@ public class FeverManager : MonoBehaviour
     [Tooltip("쏟아지는 동안 몇 초마다 하나씩 만들지")]
     [SerializeField] private float burstInterval = 0.05f;
 
+    [Header("피버 끝날 때 장애물 정리")]
+    [Tooltip("피버가 끝나면 화면의 모든 장애물을 없앤 뒤, 몇 초 동안 새 장애물을 만들지 않을지")]
+    [SerializeField] private float spawnDelayAfterFever = 1f;
+
     [Header("화면 표시 (비워 두면 표시하지 않습니다)")]
     [Tooltip("\"FEVER 4.2\"처럼 남은 시간을 보여 줄 글자")]
     [SerializeField] private TMP_Text feverText;
@@ -126,6 +130,9 @@ public class FeverManager : MonoBehaviour
         scoreManager.DestroyScoreMultiplier = 1f;
         comboManager.ProtectComboOnFail = false;
         comboManager.ResetCombo();
+
+        // 무적이 풀리는 순간 몸에 닿아 있던 장애물 때문에 바로 죽는 일이 없도록, 화면을 깨끗이 정리합니다.
+        obstacleSpawner.ClearAndPause(spawnDelayAfterFever);
 
         if (feverText != null) feverText.gameObject.SetActive(false);
         if (playerSprite != null) playerSprite.color = Color.white;

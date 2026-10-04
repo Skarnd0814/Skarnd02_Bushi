@@ -119,6 +119,18 @@ public class Obstacle : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // 점수나 콤보 없이 조각 효과만 남기고 사라집니다. (피버 타임이 끝날 때 화면 정리용)
+    public void Vanish()
+    {
+        if (IsBroken) return;
+        IsBroken = true;
+
+        DebrisPiece.Burst(spriteRenderer.bounds.center, debrisColors, debrisCount, debrisSize,
+            spriteRenderer.sortingOrder + 1);
+
+        Destroy(gameObject);
+    }
+
     private void Land()
     {
         IsBroken = true;

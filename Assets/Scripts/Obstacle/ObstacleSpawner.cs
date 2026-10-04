@@ -106,6 +106,19 @@ public class ObstacleSpawner : MonoBehaviour
         nextSpawnTime = Time.time + Random.Range(intervalMin, intervalMax);
     }
 
+    // 화면의 모든 장애물을 없애고, delay초 동안 새 장애물을 만들지 않습니다. (피버 타임이 끝날 때 사용)
+    public void ClearAndPause(float delay)
+    {
+        // 이 생성기가 만든 장애물은 모두 이 오브젝트 안(자식)에 들어 있습니다.
+        foreach (Obstacle obstacle in GetComponentsInChildren<Obstacle>())
+        {
+            obstacle.Vanish();
+        }
+
+        burstEndTime = 0f; // 혹시 아직 쏟아지는 중이면 멈춥니다.
+        nextSpawnTime = Time.time + delay;
+    }
+
     // 게임 오버가 되면 더 이상 만들지 않습니다. (STEP 9에서 사용)
     public void StopSpawning()
     {
