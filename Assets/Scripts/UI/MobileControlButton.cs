@@ -1,65 +1,56 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 // 모바일 조작 버튼 하나에 붙는 스크립트입니다. (← → 점프 공격)
-// 일반 Button은 "손을 뗄 때" 눌린 것으로 처리하지만, 이 버튼은 "닿는 순간" 바로 반응하고
-// 누르고 있는 동안을 알 수 있어서 이동 버튼에 알맞습니다.
+// 손가락이 버튼 위에 있는지는 MobileControls가 매 순간 직접 확인하고, 이 스크립트는
+// "어떤 버튼인지"와 "눌렸을 때의 모습"만 담당합니다.
 [RequireComponent(typeof(Image))]
-public class MobileControlButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class MobileControlButton : MonoBehaviour
 {
     public enum ButtonType { Left, Right, Jump, Attack }
 
     [SerializeField] private ButtonType buttonType;
-    [SerializeField] private MobileControls controls;
 
     [Tooltip("누르고 있는 동안 보여 줄 그림 (Controller_Highlight)")]
     [SerializeField] private Sprite pressedSprite;
 
     private Image image;
+    private RectTransform rectTransform;
     private Sprite normalSprite;
-    private bool isPressed;
+
+    public ButtonType Type => buttonType;
+    public bool IsPressed { get; private set; }
 
     private void Awake()
     {
         image = GetComponent<Image>();
+        rectTransform = (RectTransform)transform;
         normalSprite = image.sprite;
     }
 
-    // 손가락(마우스)이 버튼에 닿는 순간
-    public void OnPointerDown(PointerEventData eventData)
+    public void SetPressed(bool pressed)
     {
-        if (isPressed) return;
-        isPressed = true;
+        if (IsPressed == pressed) return;
+        IsPressed = pressed;
 
-        if (pressedSprite != null) image.sprite = pressedSprite;
-        controls.Press(buttonType);
+        if (pressedSprite != null) image.sprite = pressed ? pressedSprite : normalSprite;
     }
 
-    // 손가락을 뗀 순간
-    public void OnPointerUp(PointerEventData eventData)
+    // 화면의 한 점(손가락 위치)이 이 버튼 안에 있는지 확인합니다.
+    // padding만큼 버튼보다 조금 넓게 봐서, 버튼 가장자리를 눌러도 잘 인식되게 합니다.
+    public bool ContainsScreenPoint(Vector2 screenPoint, float padding)
     {
-        Release();
-    }
+        // Canvas가 Screen Space - Overlay라서 카메라는 null을 넘깁니다.
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPoint, null, out Vector2 localPoint))
+        {
+            return false;
+        }
 
-    // 누른 채로 손가락이 버튼 밖으로 미끄러져 나간 순간
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Release();
-    }
-
-    // 버튼이 꺼지면(게임 오버 화면 등) 누르고 있던 상태를 풀어 줍니다.
-    private void OnDisable()
-    {
-        Release();
-    }
-
-    private void Release()
-    {
-        if (!isPressed) return;
-        isPressed = false;
-
-        image.sprite = normalSprite;
-        controls.Release(buttonType);
+        Rect area = rectTransform.rect;
+        area.xMin -= padding;
+        area.xMax += padding;
+        area.yMin -= padding;
+        area.yMax += padding;
+        return area.Contains(localPoint);
     }
 }
