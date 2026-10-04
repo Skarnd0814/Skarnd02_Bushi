@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded { get; private set; }
     public int FacingDirection { get; private set; } = 1; // 오른쪽 1, 왼쪽 -1
 
+    // 공격하는 동안 true가 됩니다. 땅에서는 제자리에 멈추고, 점프와 방향 전환을 할 수 없습니다.
+    public bool MovementLocked { get; set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
             jumpRequested = true;
         }
 
-        if (MoveInput != 0f)
+        if (MoveInput != 0f && !MovementLocked)
         {
             FacingDirection = MoveInput > 0f ? 1 : -1;
             bool facingLeft = FacingDirection < 0;
@@ -82,9 +85,16 @@ public class PlayerController : MonoBehaviour
         IsGrounded = CheckGrounded();
 
         Vector2 velocity = rb.linearVelocity;
-        velocity.x = MoveInput * moveSpeed;
+        if (!MovementLocked)
+        {
+            velocity.x = MoveInput * moveSpeed;
+        }
+        else if (IsGrounded)
+        {
+            velocity.x = 0f; // 땅에서 공격하면 제자리에 멈춥니다. 공중에서는 날아가던 방향 그대로 갑니다.
+        }
 
-        if (jumpRequested && IsGrounded)
+        if (jumpRequested && IsGrounded && !MovementLocked)
         {
             velocity.y = jumpForce;
         }

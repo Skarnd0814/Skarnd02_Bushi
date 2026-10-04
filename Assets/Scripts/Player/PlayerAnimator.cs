@@ -1,7 +1,7 @@
 using UnityEngine;
 
-// PlayerController의 상태(움직이는 중인지, 바닥에 있는지)를 Animator에 전달해서
-// IDLE / RUN / JUMP 애니메이션이 자동으로 바뀌게 하는 스크립트입니다.
+// PlayerController / PlayerAttack의 상태를 Animator에 전달해서
+// IDLE / RUN / JUMP / ATTACK 애니메이션이 자동으로 바뀌게 하는 스크립트입니다.
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerController))]
 public class PlayerAnimator : MonoBehaviour
@@ -9,18 +9,21 @@ public class PlayerAnimator : MonoBehaviour
     // Animator 창에서 만든 Parameter 이름과 글자가 정확히 같아야 합니다.
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
     private static readonly int IsGroundedHash = Animator.StringToHash("IsGrounded");
+    private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
 
     [Tooltip("키를 바꿔 누르는 아주 짧은 순간에 IDLE이 끼어들지 않도록 기다려 주는 시간(초)")]
     [SerializeField] private float stopGraceTime = 0.08f;
 
     private Animator animator;
     private PlayerController controller;
+    private PlayerAttack attack;
     private float lastMovingTime = float.NegativeInfinity;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<PlayerController>();
+        attack = GetComponent<PlayerAttack>();
     }
 
     private void Update()
@@ -38,5 +41,6 @@ public class PlayerAnimator : MonoBehaviour
 
         animator.SetFloat(SpeedHash, speed);
         animator.SetBool(IsGroundedHash, controller.IsGrounded);
+        animator.SetBool(IsAttackingHash, attack != null && attack.IsAttacking);
     }
 }
