@@ -11,6 +11,10 @@ public class Obstacle : MonoBehaviour
     // 장애물이 플레이어에 닿았을 때 알려 줍니다. (GameManager가 듣고 게임 오버를 처리합니다)
     public static event Action<Obstacle> HitPlayer;
 
+    // 장애물이 공격받아 부서졌을 때 알려 줍니다. (ScoreManager가 듣고 점수를 더합니다)
+    // 바닥에 떨어져 사라진 경우에는 알리지 않습니다.
+    public static event Action<Obstacle> Broken;
+
     [Header("모양 (여러 장 넣으면 그중 하나를 랜덤으로 사용)")]
     [SerializeField] private Sprite[] sprites;
 
@@ -96,6 +100,7 @@ public class Obstacle : MonoBehaviour
             AudioManager.Instance.PlayCombatSound(breakSound);
         }
 
+        Broken?.Invoke(this);
         Destroy(gameObject);
     }
 
