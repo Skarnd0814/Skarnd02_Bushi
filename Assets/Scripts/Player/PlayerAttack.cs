@@ -43,6 +43,7 @@ public class PlayerAttack : MonoBehaviour
     private float cooldownEndTime;
 
     public bool IsAttacking { get; private set; }
+    public bool IsDead => controller != null && controller.IsDead;
 
     // 피버 타임 동안 true로 바꾸면 쿨타임 없이 공격할 수 있습니다. (STEP 11에서 사용)
     public bool CooldownDisabled { get; set; }
@@ -66,6 +67,14 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        if (controller.IsDead)
+        {
+            // 죽으면 공격 중이던 것도 바로 멈춥니다. (판정, 쿨타임 없이 끝)
+            IsAttacking = false;
+            attackRequested = false;
+            return;
+        }
+
         Keyboard keyboard = Keyboard.current;
         if (keyboard != null && keyboard.qKey.wasPressedThisFrame)
         {
@@ -87,7 +96,7 @@ public class PlayerAttack : MonoBehaviour
     // 장애물을 찾는 일은 물리 계산 주기에 맞춰 합니다.
     private void FixedUpdate()
     {
-        if (!IsAttacking || isJudged) return;
+        if (!IsAttacking || isJudged || controller.IsDead) return;
 
         float elapsed = Time.time - attackStartTime;
         if (elapsed >= hitStartTime)

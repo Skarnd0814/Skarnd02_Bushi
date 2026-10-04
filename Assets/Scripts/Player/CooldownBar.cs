@@ -31,7 +31,7 @@ public class CooldownBar : MonoBehaviour
         float remaining = playerAttack.CooldownRemaining;
         float duration = playerAttack.CooldownDuration;
 
-        bool visible = !playerAttack.CooldownDisabled && remaining > 0f && duration > 0f;
+        bool visible = !playerAttack.CooldownDisabled && !playerAttack.IsDead && remaining > 0f && duration > 0f;
         SetVisible(visible);
         if (!visible) return;
 

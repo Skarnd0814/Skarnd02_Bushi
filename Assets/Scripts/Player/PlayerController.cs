@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
     // 공격하는 동안 true가 됩니다. 땅에서는 제자리에 멈추고, 점프와 방향 전환을 할 수 없습니다.
     public bool MovementLocked { get; set; }
 
+    // 장애물에 맞아 죽으면 true가 됩니다. 더 이상 조작할 수 없습니다.
+    public bool IsDead { get; private set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,7 +66,9 @@ public class PlayerController : MonoBehaviour
     // Update: 매 화면(프레임)마다 실행됩니다. 키 입력은 여기서 읽습니다.
     private void Update()
     {
-        MoveInput = Mathf.Clamp(ReadKeyboardMove() + mobileMoveInput, -1f, 1f);
+        if (IsDead) return;
+
+        MoveInput =Mathf.Clamp(ReadKeyboardMove() + mobileMoveInput, -1f, 1f);
 
         Keyboard keyboard = Keyboard.current;
         if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
@@ -85,6 +90,13 @@ public class PlayerController : MonoBehaviour
         IsGrounded = CheckGrounded();
 
         Vector2 velocity = rb.linearVelocity;
+        if (IsDead)
+        {
+            // 죽은 뒤에는 옆으로 미끄러지지 않고, 공중이었다면 바닥으로 떨어지기만 합니다.
+            rb.linearVelocity = new Vector2(0f, velocity.y);
+            return;
+        }
+
         if (!MovementLocked)
         {
             velocity.x = MoveInput * moveSpeed;
@@ -153,6 +165,20 @@ public class PlayerController : MonoBehaviour
             rb.position = position;
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }
+    }
+
+    // GameManager가 게임 오버 때 호출합니다.
+    public void Die()
+    {
+        if (IsDead) return;
+
+        IsDead = true;
+        MoveInput = 0f;
+        mobileMoveInput = 0f;
+        jumpRequested = false;
+
+        // 위로 솟구치던 중이었다면 멈추고 바로 떨어지게 합니다.
+        rb.linearVelocity = new Vector2(0f, Mathf.Min(rb.linearVelocity.y, 0f));
     }
 
     // ---------- 모바일 버튼에서 호출할 함수 (나중에 연결) ----------

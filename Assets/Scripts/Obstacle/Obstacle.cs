@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Obstacle : MonoBehaviour
 {
-    // 장애물이 플레이어에 닿았을 때 알려 줍니다. (STEP 9 게임 오버에서 사용)
+    // 장애물이 플레이어에 닿았을 때 알려 줍니다. (GameManager가 듣고 게임 오버를 처리합니다)
     public static event Action<Obstacle> HitPlayer;
 
     [Header("모양 (여러 장 넣으면 그중 하나를 랜덤으로 사용)")]
@@ -82,7 +82,6 @@ public class Obstacle : MonoBehaviour
 
         if (other.GetComponentInParent<PlayerController>() != null)
         {
-            Debug.Log($"플레이어가 장애물({name})에 맞았습니다! (게임 오버는 STEP 9에서 연결)");
             HitPlayer?.Invoke(this);
         }
     }

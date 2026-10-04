@@ -10,6 +10,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int SpeedHash = Animator.StringToHash("Speed");
     private static readonly int IsGroundedHash = Animator.StringToHash("IsGrounded");
     private static readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
+    private static readonly int IsDeadHash = Animator.StringToHash("IsDead");
 
     [Tooltip("키를 바꿔 누르는 아주 짧은 순간에 IDLE이 끼어들지 않도록 기다려 주는 시간(초)")]
     [SerializeField] private float stopGraceTime = 0.08f;
@@ -28,6 +29,17 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
+        if (controller.IsDead)
+        {
+            // 죽으면 사망 모션만 나오게 합니다.
+            // 다른 신호는 "바닥에 가만히 서 있음"으로 고정해서, 점프/공격 화살표가 사망 모션을 끊지 못하게 합니다.
+            animator.SetBool(IsDeadHash, true);
+            animator.SetFloat(SpeedHash, 0f);
+            animator.SetBool(IsGroundedHash, true);
+            animator.SetBool(IsAttackingHash, false);
+            return;
+        }
+
         float speed = Mathf.Abs(controller.MoveInput);
         if (speed > 0f)
         {
