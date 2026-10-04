@@ -1659,7 +1659,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4245015, y: 1.4245015, z: 1}
+  m_LocalScale: {x: 1.6357, y: 1.6357, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2540,10 +2540,8 @@ MonoBehaviour:
   feverTint: {r: 1, g: 0.85, b: 0.3, a: 1}
   blinkSpeed: 6
   feverStartSounds:
-  - {fileID: 8300000, guid: 57dcd0e2a6b07944ab9faeaa7cf0863d, type: 3}
-  - {fileID: 8300000, guid: d52ac224c23f8a84ebcbef0fee4009f2, type: 3}
-  - {fileID: 8300000, guid: 2c631dc1c7e6cb9479924e41b60da613, type: 3}
-  - {fileID: 8300000, guid: 1e40dc40557cc3c4ca662ce253afbaa8, type: 3}
+  - {fileID: 8300000, guid: 6f1eefdd1426b3740860c56bb79268e6, type: 3}
+  - {fileID: 8300000, guid: 9ab00e67a39fb7644b0a8713c19d64c2, type: 3}
 --- !u!4 &1168462646
 Transform:
   m_ObjectHideFlags: 0
