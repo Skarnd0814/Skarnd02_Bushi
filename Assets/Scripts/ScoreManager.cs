@@ -7,7 +7,8 @@ using UnityEngine;
 // - 게임 오버 때 최고 점수를 저장합니다.
 public class ScoreManager : MonoBehaviour
 {
-    private const string BestScoreKey = "BestScore";
+    // 최고 점수를 저장하는 이름표입니다. 메인 메뉴에서도 같은 이름으로 읽어 갑니다.
+    public const string BestScoreKey = "BestScore";
 
     public static ScoreManager Instance { get; private set; }
 

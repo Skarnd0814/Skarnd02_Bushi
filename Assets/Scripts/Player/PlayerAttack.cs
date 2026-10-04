@@ -75,6 +75,13 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
+        // 일시정지 중(게임 속 시간이 멈춤)에는 공격 입력을 받지 않습니다.
+        if (Time.timeScale == 0f)
+        {
+            attackRequested = false;
+            return;
+        }
+
         Keyboard keyboard = Keyboard.current;
         if (keyboard != null && keyboard.qKey.wasPressedThisFrame)
         {

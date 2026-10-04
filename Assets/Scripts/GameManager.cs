@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        // 혹시 시간이 멈춘 채로 이 씬에 들어와도 정상 속도로 시작하게 합니다. (일시정지 안전장치)
+        Time.timeScale = 1f;
     }
 
     // OnEnable / OnDisable: 장애물의 "플레이어에 닿았어요" 알림을 듣기 시작하고, 그만 듣습니다.

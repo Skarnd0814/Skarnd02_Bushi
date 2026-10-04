@@ -66,7 +66,8 @@ public class PlayerController : MonoBehaviour
     // Update: 매 화면(프레임)마다 실행됩니다. 키 입력은 여기서 읽습니다.
     private void Update()
     {
-        if (IsDead) return;
+        // 죽었거나 일시정지 중(게임 속 시간이 멈춤)이면 입력을 받지 않습니다.
+        if (IsDead || Time.timeScale == 0f) return;
 
         MoveInput =Mathf.Clamp(ReadKeyboardMove() + mobileMoveInput, -1f, 1f);
 

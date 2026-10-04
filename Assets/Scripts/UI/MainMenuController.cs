@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,9 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private SettingsPopup settingsPopup;
 
+    [Header("최고 점수 표시 (비워 두면 표시하지 않습니다)")]
+    [SerializeField] private TMP_Text bestScoreText;
+
     [Header("START를 누르면 이동할 씬 이름")]
     [SerializeField] private string inGameSceneName = "InGameScene";
 
@@ -16,6 +20,15 @@ public class MainMenuController : MonoBehaviour
     {
         startButton.onClick.AddListener(StartGame);
         settingsButton.onClick.AddListener(settingsPopup.Open);
+    }
+
+    private void Start()
+    {
+        if (bestScoreText != null)
+        {
+            int bestScore = PlayerPrefs.GetInt(ScoreManager.BestScoreKey, 0);
+            bestScoreText.text = $"BEST {bestScore}";
+        }
     }
 
     private void StartGame()
