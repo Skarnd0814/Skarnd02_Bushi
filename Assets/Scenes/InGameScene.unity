@@ -966,6 +966,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1091,6 +1092,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130fa30e174a27243807010c98ecbddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  gameManager: {fileID: 389609852}
+  feverManager: {fileID: 1168462645}
+  breakStrength: 0.06
+  breakDuration: 0.1
+  feverStrength: 0.15
+  feverDuration: 0.3
+  gameOverStrength: 0.3
+  gameOverDuration: 0.35
 --- !u!1 &541365089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,6 +2603,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1595716537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595716539}
+  - component: {fileID: 1595716538}
+  m_Layer: 0
+  m_Name: ScorePopupSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1595716538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595716537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5bc5c0305383d45a7c66302f68d85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScorePopupSpawner
+  comboManager: {fileID: 616746617}
+  scoreManager: {fileID: 1790878422}
+  font: {fileID: 11400000, guid: 593bc9d01d9a90b49b67f37214555ae0, type: 2}
+  fontSize: 5
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  feverColor: {r: 1, g: 0.55, b: 0.2, a: 1}
+  sortingOrder: 30
+  riseSpeed: 1.5
+  lifetime: 0.7
+--- !u!4 &1595716539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595716537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 848.70496, y: 551.42224, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596742191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,3 +3546,4 @@ SceneRoots:
   - {fileID: 1790878423}
   - {fileID: 616746618}
   - {fileID: 1168462646}
+  - {fileID: 1595716539}
