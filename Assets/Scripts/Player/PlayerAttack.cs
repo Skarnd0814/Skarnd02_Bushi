@@ -156,10 +156,6 @@ public class PlayerAttack : MonoBehaviour
 
         if (!success) PlaySound(failSound);
 
-        Debug.Log(success
-            ? $"공격 성공! 장애물 {destroyedCount}개 파괴, 쿨타임 {CooldownDuration}초"
-            : $"공격 실패... 쿨타임 {CooldownDuration}초");
-
         AttackJudged?.Invoke(destroyedCount);
     }
 

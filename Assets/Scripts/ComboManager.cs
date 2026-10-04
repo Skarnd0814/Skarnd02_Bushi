@@ -34,6 +34,9 @@ public class ComboManager : MonoBehaviour
     // 콤보 수가 바뀔 때마다 알려 줍니다. (피버 타임에서 사용)
     public event Action<int> ComboChanged;
 
+    // 장애물을 부숴서 점수를 받았을 때, 부순 위치와 받은 점수를 알려 줍니다. (점수 팝업에서 사용)
+    public event Action<Vector3, int> ObstacleScored;
+
     private void Awake()
     {
         Instance = this;
@@ -75,7 +78,8 @@ public class ComboManager : MonoBehaviour
         MaxCombo = Mathf.Max(MaxCombo, Combo);
 
         // 콤보를 먼저 올린 다음, 올라간 콤보로 점수를 계산합니다.
-        scoreManager.AddDestroyScore(Combo);
+        int points = scoreManager.AddDestroyScore(Combo);
+        ObstacleScored?.Invoke(obstacle.transform.position, points);
 
         punchTimer = punchDuration;
         RefreshText();

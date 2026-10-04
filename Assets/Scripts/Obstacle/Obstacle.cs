@@ -34,6 +34,18 @@ public class Obstacle : MonoBehaviour
     [Header("소리")]
     [SerializeField] private AudioClip breakSound;
 
+    [Header("부서질 때 조각 효과")]
+    [Tooltip("조각 색 (여러 개 넣으면 조각마다 랜덤). 통나무는 갈색, 바위는 회색 계열이 어울립니다.")]
+    [SerializeField] private Color[] debrisColors =
+    {
+        new Color(0.42f, 0.26f, 0.14f),
+        new Color(0.62f, 0.42f, 0.24f),
+    };
+    [Tooltip("조각 개수 (0 = 효과 없음)")]
+    [SerializeField] private int debrisCount = 10;
+    [Tooltip("조각 하나의 크기 (칸)")]
+    [SerializeField] private float debrisSize = 0.12f;
+
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private BoxCollider2D box;
@@ -99,6 +111,9 @@ public class Obstacle : MonoBehaviour
         {
             AudioManager.Instance.PlayCombatSound(breakSound);
         }
+
+        DebrisPiece.Burst(spriteRenderer.bounds.center, debrisColors, debrisCount, debrisSize,
+            spriteRenderer.sortingOrder + 1);
 
         Broken?.Invoke(this);
         Destroy(gameObject);

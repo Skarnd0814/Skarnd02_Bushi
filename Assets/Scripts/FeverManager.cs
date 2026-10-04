@@ -113,7 +113,6 @@ public class FeverManager : MonoBehaviour
             AudioManager.Instance.PlayCombatSound(feverStartSound);
         }
 
-        Debug.Log($"피버 타임 시작! ({feverDuration}초)");
         FeverStarted?.Invoke();
     }
 
@@ -129,7 +128,6 @@ public class FeverManager : MonoBehaviour
         if (feverText != null) feverText.gameObject.SetActive(false);
         if (playerSprite != null) playerSprite.color = Color.white;
 
-        Debug.Log("피버 타임 끝");
         FeverEnded?.Invoke();
     }
 }

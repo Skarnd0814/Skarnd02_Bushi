@@ -54,8 +54,6 @@ public class GameManager : MonoBehaviour
         if (IsGameOver) return;
         IsGameOver = true;
 
-        Debug.Log("게임 오버!");
-
         obstacleSpawner.StopSpawning();
         player.Die();
 
