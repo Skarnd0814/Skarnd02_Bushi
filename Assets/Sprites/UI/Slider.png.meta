@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 093284ff47491b34588f363f34782a8c
+guid: f751aba917e35c549ab66f94cc840b23
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 675028673041558474
-    second: CloseButton-removebg-preview_0
+      213: 9169877530624898698
+    second: Slider_0
+  - first:
+      213: 5412086268284726026
+    second: Slider_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CloseButton_X
+      name: SliderHandle
       rect:
         serializedVersion: 2
-        x: 161
-        y: 56
-        width: 291
-        height: 298
+        x: 261
+        y: 233
+        width: 89
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: acb68dd600f2e5900800000000000000
-      internalID: 675028673041558474
+      spriteID: a86bbbea703f14f70800000000000000
+      internalID: 9169877530624898698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SliderBar
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 79
+        width: 550
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 56, y: 0, z: 56, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b61ea59c79b1b40800000000000000
+      internalID: 5412086268284726026
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62f792a0b1d91a3419875e4185efa8be
+    spriteID: f7aec49b5a5b3c84e9145235acf1bcbb
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +162,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      CloseButton_X: 675028673041558474
+      SliderBar: 5412086268284726026
+      SliderHandle: 9169877530624898698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
