@@ -43,7 +43,8 @@ public class FeverManager : MonoBehaviour
     [SerializeField] private float blinkSpeed = 6f;
 
     [Header("소리 (비워 두면 재생하지 않습니다)")]
-    [SerializeField] private AudioClip feverStartSound;
+    [Tooltip("피버 시작 효과음. 여러 개 넣으면 그중 하나를 랜덤으로 재생합니다.")]
+    [SerializeField] private AudioClip[] feverStartSounds;
 
     private float feverEndTime;
 
@@ -108,9 +109,10 @@ public class FeverManager : MonoBehaviour
         obstacleSpawner.StartBurst(burstDuration, burstInterval);
 
         if (feverText != null) feverText.gameObject.SetActive(true);
-        if (feverStartSound != null && AudioManager.Instance != null)
+        if (feverStartSounds != null && feverStartSounds.Length > 0 && AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlayCombatSound(feverStartSound);
+            AudioClip clip = feverStartSounds[UnityEngine.Random.Range(0, feverStartSounds.Length)];
+            AudioManager.Instance.PlayCombatSound(clip);
         }
 
         FeverStarted?.Invoke();

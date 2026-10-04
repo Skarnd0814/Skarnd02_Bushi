@@ -2530,7 +2530,7 @@ MonoBehaviour:
   scoreManager: {fileID: 1790878422}
   playerAttack: {fileID: 154136543}
   obstacleSpawner: {fileID: 1415198488}
-  feverComboThreshold: 10
+  feverComboThreshold: 3
   feverDuration: 5
   destroyScoreMultiplier: 2
   burstDuration: 2
@@ -2539,7 +2539,11 @@ MonoBehaviour:
   playerSprite: {fileID: 154136539}
   feverTint: {r: 1, g: 0.85, b: 0.3, a: 1}
   blinkSpeed: 6
-  feverStartSound: {fileID: 0}
+  feverStartSounds:
+  - {fileID: 8300000, guid: 57dcd0e2a6b07944ab9faeaa7cf0863d, type: 3}
+  - {fileID: 8300000, guid: d52ac224c23f8a84ebcbef0fee4009f2, type: 3}
+  - {fileID: 8300000, guid: 2c631dc1c7e6cb9479924e41b60da613, type: 3}
+  - {fileID: 8300000, guid: 1e40dc40557cc3c4ca662ce253afbaa8, type: 3}
 --- !u!4 &1168462646
 Transform:
   m_ObjectHideFlags: 0
