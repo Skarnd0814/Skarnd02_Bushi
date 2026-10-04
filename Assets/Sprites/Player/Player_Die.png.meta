@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 92
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,12 +130,12 @@ TextureImporter:
       name: Player_Die_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 218
-        width: 79
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 19
+        y: 219
+        width: 77
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: Player_Die_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 218
-        width: 79
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 131
+        y: 219
+        width: 76
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: Player_Die_2
       rect:
         serializedVersion: 2
-        x: 245
-        y: 218
-        width: 82
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 246
+        y: 219
+        width: 80
+        height: 134
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: Player_Die_3
       rect:
         serializedVersion: 2
-        x: 361
-        y: 219
-        width: 89
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 362
+        y: 220
+        width: 87
+        height: 130
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Player_Die_4
       rect:
         serializedVersion: 2
-        x: 479
-        y: 219
-        width: 83
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 220
+        width: 81
+        height: 129
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: Player_Die_5
       rect:
         serializedVersion: 2
-        x: 17
-        y: 69
-        width: 78
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 70
+        width: 75
+        height: 119
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: Player_Die_6
       rect:
         serializedVersion: 2
-        x: 126
-        y: 69
-        width: 84
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 127
+        y: 70
+        width: 82
+        height: 118
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: Player_Die_7
       rect:
         serializedVersion: 2
-        x: 238
-        y: 69
-        width: 85
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 239
+        y: 70
+        width: 83
+        height: 113
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: Player_Die_8
       rect:
         serializedVersion: 2
-        x: 350
-        y: 69
-        width: 111
-        height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 351
+        y: 70
+        width: 109
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: Player_Die_9
       rect:
         serializedVersion: 2
-        x: 478
-        y: 71
-        width: 115
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 479
+        y: 72
+        width: 112
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -350,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 518a3c5e54a3f66459cb91083d9e8f6b
     internalID: 0
     vertices: []
     indices: 
@@ -358,7 +358,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Player_Die_0: -8311989477641001193
       Player_Die_1: 2405681977902352581
