@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerController player;
     [SerializeField] private ObstacleSpawner obstacleSpawner;
+    [SerializeField] private FeverManager feverManager;
 
     [Header("소리")]
     [Tooltip("게임 오버 효과음. 여러 개 넣으면 그중 하나를 랜덤으로 재생합니다. (설정창의 EFFECT 볼륨을 따릅니다)")]
@@ -37,6 +38,13 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerHit(Obstacle obstacle)
     {
+        // 피버 타임에는 무적! 게임 오버 대신 몸에 닿은 장애물을 부숩니다. (점수와 콤보도 오릅니다)
+        if (feverManager != null && feverManager.IsFever)
+        {
+            obstacle.Break();
+            return;
+        }
+
         TriggerGameOver();
     }
 

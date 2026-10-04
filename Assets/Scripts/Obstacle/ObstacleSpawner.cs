@@ -35,7 +35,13 @@ public class ObstacleSpawner : MonoBehaviour
     private float startTime;
     private float nextSpawnTime;
 
+    // 장애물 쏟아지기(피버 타임 시작 때)
+    private float burstEndTime;
+    private float burstInterval;
+    private float nextBurstSpawnTime;
+
     public bool IsSpawning { get; private set; } = true;
+    public bool IsBursting => Time.time < burstEndTime;
 
     // 지금 난이도 (0 = 게임 시작, 1 = 가장 어려움)
     public float Difficulty => Mathf.Clamp01((Time.time - startTime) / timeToMaxDifficulty);
@@ -56,6 +62,22 @@ public class ObstacleSpawner : MonoBehaviour
             Spawn();
             ScheduleNextSpawn();
         }
+
+        // 쏟아지는 중이면 평소 생성과 별개로 짧은 간격마다 추가로 만듭니다.
+        // 화면 한 장면이 간격보다 길게 걸려도 빠뜨리지 않도록, 밀린 만큼 한꺼번에 만듭니다.
+        while (IsBursting && Time.time >= nextBurstSpawnTime)
+        {
+            Spawn();
+            nextBurstSpawnTime += burstInterval;
+        }
+    }
+
+    // 지금부터 duration초 동안 interval초마다 장애물을 하나씩 마구 만듭니다. (FeverManager가 호출)
+    public void StartBurst(float duration, float interval)
+    {
+        burstInterval = Mathf.Max(0.01f, interval); // 0이면 끝없이 만들게 되므로 최소값을 둡니다.
+        burstEndTime = Time.time + duration;
+        nextBurstSpawnTime = Time.time;
     }
 
     private void Spawn()
