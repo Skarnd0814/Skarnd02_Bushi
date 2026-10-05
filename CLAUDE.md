@@ -78,7 +78,8 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 | `Effects/*` | `DebrisPiece`(코드 생성 조각), `CameraShake`(파괴/피버/게임오버 이벤트 구독), `ScorePopupSpawner`+`ScorePopup`(월드 TMP "+130") |
 | `UI/MobileControls` + `MobileControlButton` | 매 프레임 터치/마우스 위치를 직접 검사(손가락 미끄러뜨려 버튼 전환 가능), touchPadding, 공격 버튼 쿨타임 색 |
 | `UI/PauseMenu` | Time.timeScale=0 일시정지, Esc, OnApplicationPause 자동 정지, 씬 전환 전 timeScale 복구, 선택 해제 |
-| `UI/GameOverUI` | 1.2초 뒤 결과 화면(SCORE/BEST/MAX COMBO, NEW BEST), RESTART/MAIN, 게임 오버 시 숨길 UI 목록 |
+| `UI/GameOverUI` | 1.2초 뒤 결과 화면(SCORE/BEST/MAX COMBO, NEW BEST), RESTART/MAIN, 게임 오버 시 숨길 UI 목록. coinManager 연결 시 금색 `COIN +이번 판` 줄 추가 (rich text) |
+| `UI/CoinWalletDisplay` | TMP 글자에 붙이면 보유 코인 표시, `CoinWallet.Changed`로 즉시 갱신 (인게임 점수판 옆 CoinWallet) |
 | `UI/MainMenuController`, `SettingsPopup`, `ButtonClickSound`, `SafeAreaFitter` | 메인 메뉴 버튼/BEST, 볼륨 팝업, 버튼 클릭음, 안전 영역 |
 | `BackgroundFitter` | [ExecuteAlways] 화면 비율에 맞춰 배경을 덮도록 스케일 |
 
@@ -111,5 +112,5 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 
 - 배포된 v1.0 APK는 피버 발동 콤보 3으로 빌드되었을 수 있음 → 다음 릴리스(v1.1)에서 5로 반영 (릴리스 설명의 "10콤보" 문구도 5로 수정 필요)
 - 스킬 가격(설계값): 1번 100, 2번 150, 3번 200 코인. Galmuri11 TMP 아틀라스는 영문만(정적 98자) → UI 글자는 영어로
-- 다음 단계 후보: 게임 오버 화면에 이번 판 코인(`CoinManager.EarnedThisRun`) 표시, 출시 전 `PlayerSkills.unlockAllOnPC` 확인
+- 다음 단계 후보: 출시 전 `PlayerSkills.unlockAllOnPC` 확인, v1.1 릴리스(피버 5콤보 문구 반영)
 - 아이디어: 새 장애물·아이템(방패, 자석), 일시정지 창에 볼륨 설정, Play 스토어 출시(정식 Keystore, Bundle Version Code 증가)
