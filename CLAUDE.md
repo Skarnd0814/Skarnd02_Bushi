@@ -60,7 +60,8 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 | `Skills/RisingCrescentSkill` (3) | `PlayerController.AirJumpPressed`(공중 점프 입력) 구독 → `Leap()` 후 초승달 검기, 착지 전 1회, 검기 debrisMultiplier 3 |
 | `Skills/SkillProjectile` + `SkillProjectileSettings` | 코드 생성 검기. 관통, 화면 밖에서 소멸, OverlapBox로 `Obstacle.Break(debrisMultiplier)` |
 | `Skills/SkillUnlocks` | 스킬 구매 기록(PlayerPrefs `SkillUnlocked_번호`). 상점에서 `Unlock(번호)` 호출 예정 |
-| `Effects/SpriteFlipbook` | 코드 생성 프레임 애니메이션(1회 후 삭제 / 반복), Follow |
+| `Effects/SpriteFlipbook` | 코드 생성 프레임 애니메이션(1회 후 삭제 / 반복), Follow, SkipTime |
+| `Effects/CoinPopupSpawner` + `FlyingCoin` | `ObstacleScored` 수신 → 피버 중이면 "Coin +1" 월드 TMP(점수 글자 아래) + 회전 코인(Coin_Split_0~7) 여러 개 튀어나옴. 현재 표시만 (코인 저장·메인 메뉴 표기는 다음 단계) |
 | `UI/SkillButtonUI` | 스킬 버튼(버튼 Image = 아이콘)의 쿨타임 덮개(버튼 그림 복사, Radial360 자동 설정)·남은 초·누름 어둡게. 스킬 버튼의 Pressed Sprite는 비워 둠. 버튼 입력은 MobileControlButton(Skill1~3) + MobileControls, 미구매 스킬 버튼은 MobileControls가 숨김 |
 | `Player/CooldownBar` | 머리 위 하얀 쿨타임 게이지 |
 | `Obstacle/Obstacle` | Kinematic 낙하, 랜덤 스프라이트/기울기, 콜라이더 자동 맞춤. `Break()`(점수 O) / `Vanish()`(점수 X) / 바닥 도달 시 소멸. 정적 이벤트 `HitPlayer`, `Broken` |
@@ -104,4 +105,5 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 ## 남은 일 / 아이디어
 
 - 배포된 v1.0 APK는 피버 발동 콤보 3으로 빌드되었을 수 있음 → 다음 릴리스(v1.1)에서 5로 반영 (릴리스 설명의 "10콤보" 문구도 5로 수정 필요)
+- 다음 단계: 피버 코인 저장(PlayerPrefs) + 메인 메뉴 코인 표시 → 이후 스킬 상점(`SkillUnlocks.Unlock`)
 - 아이디어: 새 장애물·아이템(방패, 자석), 일시정지 창에 볼륨 설정, Play 스토어 출시(정식 Keystore, Bundle Version Code 증가)
