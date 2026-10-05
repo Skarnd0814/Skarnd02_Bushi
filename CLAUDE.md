@@ -1,7 +1,7 @@
 # Bushi (Skarnd02_Bushi) — Claude 작업 노트
 
 하늘에서 떨어지는 장애물을 칼로 베며 살아남는 픽셀 아트 2D 모바일(Android) 액션 게임.
-v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·새 캐릭터) 릴리스 준비 완료 (2026-10-05, Version 1.1 / Bundle Version Code 2). 이 파일은 다음 세션이 이어서 작업하기 위한 인수인계 노트다.
+v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·새 캐릭터)도 GitHub Release로 배포함 (2026-10-05, 태그 v1.1, Version 1.1 / Bundle Version Code 2). 이 파일은 다음 세션이 이어서 작업하기 위한 인수인계 노트다.
 
 ## 진행 규칙 (사용자 요청 — 반드시 지킬 것)
 
@@ -107,6 +107,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 - Hierarchy 아래쪽이 앞에 그려진다 (패널은 텍스트보다 위에 둘 것)
 - Play 중 Inspector 변경은 사라진다 / 테스트용으로 바꾼 값은 빌드·커밋 전에 되돌릴 것. 단, 값이 계획과 달라 보여도 사용자가 일부러 조정했을 수 있으니 바꾸기 전에 먼저 물어볼 것
 - Android 빌드 시 생기는 `.utmp/`는 gitignore 대상
+- Unity 종료 직후 `ProjectSettings.asset`의 `preloadedAssets`에서 InputSystem_Actions 한 줄만 빠지는 변경은 Input System이 자동으로 넣고 빼는 것 → 커밋하지 말고 Discard (코드는 Keyboard.current/Touchscreen.current를 직접 사용)
 
 ## 남은 일 / 아이디어
 
