@@ -9,6 +9,9 @@
 /[Mm]emoryCaptures/
 /[Rr]ecordings/
 
+# Android 빌드 때 생기는 임시 폴더
+/.utmp/
+
 # Asset Store 도구 등
 /[Aa]ssets/AssetStoreTools*
 /[Aa]ssets/Plugins/Editor/JetBrains*
