@@ -1,0 +1,808 @@
+fileFormatVersion: 2
+guid: 7ad0255cd93229941a6bd59c46fd0c3a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5613780542711995342
+    second: Bushi-asm_skill2_0
+  - first:
+      213: -2061099373567436865
+    second: Bushi-asm_skill2_1
+  - first:
+      213: 8434066775542841764
+    second: Bushi-asm_skill2_2
+  - first:
+      213: -1748318892857879396
+    second: Bushi-asm_skill2_3
+  - first:
+      213: 7308117455698635344
+    second: Bushi-asm_skill2_4
+  - first:
+      213: -159785833147518741
+    second: Bushi-asm_skill2_5
+  - first:
+      213: 6898097245254470861
+    second: Bushi-asm_skill2_6
+  - first:
+      213: 5864948814416902884
+    second: Bushi-asm_skill2_7
+  - first:
+      213: 3522022873180705230
+    second: Bushi-asm_skill2_8
+  - first:
+      213: 1775279023481413179
+    second: Bushi-asm_skill2_9
+  - first:
+      213: 6785027815716135444
+    second: Bushi-asm_skill2_10
+  - first:
+      213: 5473287129311065497
+    second: Bushi-asm_skill2_11
+  - first:
+      213: -6010788964947743095
+    second: Bushi-asm_skill2_12
+  - first:
+      213: 6188983975121890466
+    second: Bushi-asm_skill2_13
+  - first:
+      213: -200926635324582179
+    second: Bushi-asm_skill2_14
+  - first:
+      213: 2208973221659951684
+    second: Bushi-asm_skill2_15
+  - first:
+      213: -5355709756983151947
+    second: Bushi-asm_skill2_16
+  - first:
+      213: 1607491026678680251
+    second: Bushi-asm_skill2_17
+  - first:
+      213: 3400067910871096031
+    second: Bushi-asm_skill2_18
+  - first:
+      213: 4101577294770731937
+    second: Bushi-asm_skill2_19
+  - first:
+      213: 770933649451003155
+    second: Bushi-asm_skill2_20
+  - first:
+      213: -6821765570281300573
+    second: Bushi-asm_skill2_21
+  - first:
+      213: -5915237713560760120
+    second: Bushi-asm_skill2_22
+  - first:
+      213: 7739950514496680731
+    second: Bushi-asm_skill2_23
+  - first:
+      213: -4166591290273724463
+    second: Bushi-asm_skill2_24
+  - first:
+      213: 7474726429405096279
+    second: Bushi-asm_skill2_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_0
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 2129
+        width: 90
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb195719a728ed40800000000000000
+      internalID: 5613780542711995342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_1
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 2129
+        width: 90
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb79bb73a018563e0800000000000000
+      internalID: -2061099373567436865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_2
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 2129
+        width: 90
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a1c728fb03db0570800000000000000
+      internalID: 8434066775542841764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_3
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 2129
+        width: 66
+        height: 138
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c941a1dda39bcb7e0800000000000000
+      internalID: -1748318892857879396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_4
+      rect:
+        serializedVersion: 2
+        x: 2251
+        y: 2215
+        width: 36
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05aafbb1b16ab6560800000000000000
+      internalID: 7308117455698635344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_5
+      rect:
+        serializedVersion: 2
+        x: 2267
+        y: 2129
+        width: 72
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be03a1f91a358cdf0800000000000000
+      internalID: -159785833147518741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1617
+        width: 110
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc4e7995e6fabf50800000000000000
+      internalID: 6898097245254470861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_7
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1617
+        width: 135
+        height: 104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eafa257fdb746150800000000000000
+      internalID: 5864948814416902884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_8
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 1617
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec19cb6842db0e030800000000000000
+      internalID: 3522022873180705230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_9
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 1616
+        width: 127
+        height: 111
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3edfc3bdde03a810800000000000000
+      internalID: 1775279023481413179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_10
+      rect:
+        serializedVersion: 2
+        x: 2287
+        y: 1616
+        width: 105
+        height: 153
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412a7ea89d2492e50800000000000000
+      internalID: 6785027815716135444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_11
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1105
+        width: 100
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995bd4835a505fb40800000000000000
+      internalID: 5473287129311065497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_12
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 1105
+        width: 96
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ea37c6843659ca0800000000000000
+      internalID: -6010788964947743095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_13
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 1105
+        width: 100
+        height: 111
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aca9bd7220b3e550800000000000000
+      internalID: 6188983975121890466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_14
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 1105
+        width: 147
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6509b2a4a263df0800000000000000
+      internalID: -200926635324582179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_15
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 1105
+        width: 140
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44244630179d7ae10800000000000000
+      internalID: 2208973221659951684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_16
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 591
+        width: 140
+        height: 105
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2fcee0a52bca5b0800000000000000
+      internalID: -5355709756983151947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_17
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 592
+        width: 137
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba8fc86294fe4610800000000000000
+      internalID: 1607491026678680251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_18
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 592
+        width: 138
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda1da720c77f2f20800000000000000
+      internalID: 3400067910871096031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_19
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 592
+        width: 128
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1abfd9981dabbe830800000000000000
+      internalID: 4101577294770731937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_20
+      rect:
+        serializedVersion: 2
+        x: 2299
+        y: 592
+        width: 102
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d2ce0d118e2ba00800000000000000
+      internalID: 770933649451003155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_21
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 81
+        width: 91
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad946a6b583451a0800000000000000
+      internalID: -6821765570281300573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_22
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 81
+        width: 90
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c09739c3aad8eda0800000000000000
+      internalID: -5915237713560760120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_23
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 81
+        width: 88
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b133da32cf3d96b60800000000000000
+      internalID: 7739950514496680731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_24
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 81
+        width: 90
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d78ffa0c4b4d26c0800000000000000
+      internalID: -4166591290273724463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bushi-asm_skill2_25
+      rect:
+        serializedVersion: 2
+        x: 2267
+        y: 81
+        width: 90
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7592ae1b5109bb760800000000000000
+      internalID: 7474726429405096279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2e518bc2954d38e488a18495851be8d8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bushi-asm_skill2_0: 5613780542711995342
+      Bushi-asm_skill2_1: -2061099373567436865
+      Bushi-asm_skill2_10: 6785027815716135444
+      Bushi-asm_skill2_11: 5473287129311065497
+      Bushi-asm_skill2_12: -6010788964947743095
+      Bushi-asm_skill2_13: 6188983975121890466
+      Bushi-asm_skill2_14: -200926635324582179
+      Bushi-asm_skill2_15: 2208973221659951684
+      Bushi-asm_skill2_16: -5355709756983151947
+      Bushi-asm_skill2_17: 1607491026678680251
+      Bushi-asm_skill2_18: 3400067910871096031
+      Bushi-asm_skill2_19: 4101577294770731937
+      Bushi-asm_skill2_2: 8434066775542841764
+      Bushi-asm_skill2_20: 770933649451003155
+      Bushi-asm_skill2_21: -6821765570281300573
+      Bushi-asm_skill2_22: -5915237713560760120
+      Bushi-asm_skill2_23: 7739950514496680731
+      Bushi-asm_skill2_24: -4166591290273724463
+      Bushi-asm_skill2_25: 7474726429405096279
+      Bushi-asm_skill2_3: -1748318892857879396
+      Bushi-asm_skill2_4: 7308117455698635344
+      Bushi-asm_skill2_5: -159785833147518741
+      Bushi-asm_skill2_6: 6898097245254470861
+      Bushi-asm_skill2_7: 5864948814416902884
+      Bushi-asm_skill2_8: 3522022873180705230
+      Bushi-asm_skill2_9: 1775279023481413179
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
