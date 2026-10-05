@@ -1,7 +1,7 @@
 # Bushi (Skarnd02_Bushi) — Claude 작업 노트
 
 하늘에서 떨어지는 장애물을 칼로 베며 살아남는 픽셀 아트 2D 모바일(Android) 액션 게임.
-v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이 이어서 작업하기 위한 인수인계 노트다.
+v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·새 캐릭터) 릴리스 준비 완료 (2026-10-05, Version 1.1 / Bundle Version Code 2). 이 파일은 다음 세션이 이어서 작업하기 위한 인수인계 노트다.
 
 ## 진행 규칙 (사용자 요청 — 반드시 지킬 것)
 
@@ -34,7 +34,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 ## 환경
 
 - Unity 6.3 LTS (6000.3.25f1), 2D URP, Input System(새 입력 시스템만 사용), TextMeshPro (com.unity.ugui 2.0)
-- 플랫폼: Android (Package `com.skarnd.bushi`, Product Name `Bushi`, Company `Skarnd0814`, 가로 화면 고정, IL2CPP/ARM64)
+- 플랫폼: Android (Package `com.skarnd0814.bushi`, Product Name `Bushi`, Company `Skarnd0814`, 가로 화면 고정, IL2CPP/ARM64)
 - 빌드 결과물은 `Builds/` 폴더 (gitignore 됨). GitHub: https://github.com/Skarnd0814/Skarnd02_Bushi
 - 기준 해상도 1920×1080 (Canvas Scaler: Scale With Screen Size, Match 0.5)
 
@@ -110,7 +110,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 
 ## 남은 일 / 아이디어
 
-- 배포된 v1.0 APK는 피버 발동 콤보 3으로 빌드되었을 수 있음 → 다음 릴리스(v1.1)에서 5로 반영 (릴리스 설명의 "10콤보" 문구도 5로 수정 필요)
-- 스킬 가격(설계값): 1번 100, 2번 150, 3번 200 코인. Galmuri11 TMP 아틀라스는 영문만(정적 98자) → UI 글자는 영어로
-- 다음 단계 후보: 출시 전 `PlayerSkills.unlockAllOnPC` 확인, v1.1 릴리스(피버 5콤보 문구 반영)
-- 아이디어: 새 장애물·아이템(방패, 자석), 일시정지 창에 볼륨 설정, Play 스토어 출시(정식 Keystore, Bundle Version Code 증가)
+- 릴리스 서명: v1.0·v1.1은 **디버그 키(이 PC의 debug.keystore)** 로 서명됨 → 같은 PC에서 빌드해야 휴대폰에서 덮어쓰기 업데이트 가능. 정식 Keystore로 바꾸면 기존 설치본은 삭제 후 재설치 필요 (Play 스토어 출시 때 전환)
+- 다음 릴리스마다 Player Settings의 Version과 Bundle Version Code(+1)를 올릴 것
+- Player_Die는 아직 옛 캐릭터 그림 → 새 DIE 시트 필요
+- 아이디어: 새 장애물·아이템(방패, 자석), 일시정지 창에 볼륨 설정, 한글 UI(TMP 폰트 아틀라스에 한글 추가 필요), Play 스토어 출시
