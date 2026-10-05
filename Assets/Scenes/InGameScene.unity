@@ -1340,7 +1340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileControlButton
   buttonType: 3
-  controls: {fileID: 637984522}
   pressedSprite: {fileID: -6443082928353904925, guid: bef4016cdd7204a43acdb220d1540280, type: 3}
 --- !u!114 &541365092
 MonoBehaviour:
@@ -1569,6 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MobileControls
   player: {fileID: 154136536}
   playerAttack: {fileID: 154136543}
+  touchPadding: 15
   attackButtonImage: {fileID: 541365092}
   cooldownColor: {r: 0.45, g: 0.45, b: 0.45, a: 1}
   showOnlyOnMobile: 0
@@ -1913,7 +1913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileControlButton
   buttonType: 2
-  controls: {fileID: 637984522}
   pressedSprite: {fileID: 7203471708376869512, guid: bef4016cdd7204a43acdb220d1540280, type: 3}
 --- !u!114 &855419616
 MonoBehaviour:
@@ -2530,11 +2529,12 @@ MonoBehaviour:
   scoreManager: {fileID: 1790878422}
   playerAttack: {fileID: 154136543}
   obstacleSpawner: {fileID: 1415198488}
-  feverComboThreshold: 3
+  feverComboThreshold: 5
   feverDuration: 5
   destroyScoreMultiplier: 2
   burstDuration: 2
   burstInterval: 0.05
+  spawnDelayAfterFever: 1
   feverText: {fileID: 872497953}
   playerSprite: {fileID: 154136539}
   feverTint: {r: 1, g: 0.85, b: 0.3, a: 1}
@@ -3424,7 +3424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileControlButton
   buttonType: 1
-  controls: {fileID: 637984522}
   pressedSprite: {fileID: -7524498460338181826, guid: bef4016cdd7204a43acdb220d1540280, type: 3}
 --- !u!114 &1685932922
 MonoBehaviour:
@@ -4068,7 +4067,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileControlButton
   buttonType: 0
-  controls: {fileID: 637984522}
   pressedSprite: {fileID: -4653264707176048122, guid: bef4016cdd7204a43acdb220d1540280, type: 3}
 --- !u!114 &2027763434
 MonoBehaviour:
