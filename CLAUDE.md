@@ -100,7 +100,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 - v1.1 캐릭터 시트(`Bushi-idle/run/jump` 256칸, `Bushi-asm_attack/skill1~3` 512칸, 5×5): **PPU 64**, 칸 단위로 자르고 피벗을 .meta에 직접 지정(발밑·몸 중심, jump/skill3 공중 프레임은 장마다 발 높이). 2560px 시트는 Max Size 4096. attack은 22장. **Sprite Editor에서 다시 Slice 금지**
 - 애니메이션: Idle 0~24 @20, Run 0~24 @30, Jump 3~13 @15, Attack 0~21 @38(=0.58초), Skill1 2~20 @30, Skill2 2~21 @25, Skill3 4~14 @20
 - 스킬 이펙트(`Sprites/SkillEffect`, PPU 64): skill1 흙먼지 7장(고리 중심 피벗), skill2 100칸 20장(검기로는 _1~_3 사용), skill3 초승달 6장(그림이 왼쪽을 향함 → `flipSprite` 체크). 아이콘은 `Bushi_Skill_Icon` 한 장에 4개(_0~_2 스킬1~3, _3 빈 나무판), 조작 버튼과 같은 나무판 디자인이라 스킬 버튼의 Image 자체로 사용
-- Player_Die는 아직 옛 캐릭터 그림(PPU 92) — 새 DIE 시트 필요
+- Player_Die는 옛 캐릭터 그림(PPU 92)을 그대로 사용 — **사용자 결정으로 앞으로도 교체하지 않음** (교체 제안·알려진 문제로 언급하지 말 것)
 - 장애물 PPU: Obstacle01 180, Obstacle02 160
 - Galmuri 도트 폰트(TMP): Render Mode **RASTER**(HINTED 금지), Sampling Point Size는 도트 격자의 정확한 배수 (Galmuri9=10의 배수, Galmuri11=12의 배수, 현재 80/72), Font Size도 같은 배수, Bold 금지
 - Animator Any State 전이는 Can Transition To Self 끄기, Has Exit Time 끄기, Duration 0
@@ -112,5 +112,4 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 
 - 릴리스 서명: v1.0·v1.1은 **디버그 키(이 PC의 debug.keystore)** 로 서명됨 → 같은 PC에서 빌드해야 휴대폰에서 덮어쓰기 업데이트 가능. 정식 Keystore로 바꾸면 기존 설치본은 삭제 후 재설치 필요 (Play 스토어 출시 때 전환)
 - 다음 릴리스마다 Player Settings의 Version과 Bundle Version Code(+1)를 올릴 것
-- Player_Die는 아직 옛 캐릭터 그림 → 새 DIE 시트 필요
 - 아이디어: 새 장애물·아이템(방패, 자석), 일시정지 창에 볼륨 설정, 한글 UI(TMP 폰트 아틀라스에 한글 추가 필요), Play 스토어 출시
