@@ -10,6 +10,10 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private SettingsPopup settingsPopup;
 
+    [Header("스킬 상점 (비워 두면 사용하지 않습니다)")]
+    [SerializeField] private Button shopButton;
+    [SerializeField] private SkillShopPopup shopPopup;
+
     [Header("최고 점수 표시 (비워 두면 표시하지 않습니다)")]
     [SerializeField] private TMP_Text bestScoreText;
 
@@ -23,6 +27,7 @@ public class MainMenuController : MonoBehaviour
     {
         startButton.onClick.AddListener(StartGame);
         settingsButton.onClick.AddListener(settingsPopup.Open);
+        if (shopButton != null && shopPopup != null) shopButton.onClick.AddListener(shopPopup.Open);
     }
 
     private void Start()

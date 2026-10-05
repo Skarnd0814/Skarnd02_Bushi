@@ -146,6 +146,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // 상점 구매음처럼 버튼·화면(UI)과 관련된 소리는 이 함수로 재생합니다. (설정창의 SFX 볼륨을 따릅니다)
+    public void PlaySfx(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            sfxSource.PlayOneShot(clip);
+        }
+    }
+
     // 캐릭터 공격, 장애물 파괴, 게임 오버 소리는 이 함수로 재생합니다.
     public void PlayCombatSound(AudioClip clip)
     {
