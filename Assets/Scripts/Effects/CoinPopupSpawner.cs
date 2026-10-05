@@ -3,15 +3,10 @@ using UnityEngine;
 
 // 피버 타임에 장애물을 부수면, 부순 자리에서 코인이 터져 나오고 "Coin +1" 글자가 떠오르며 코인 소리가 나게 하는 스크립트입니다.
 // 점수 글자("+260")는 ScorePopupSpawner가 따로 띄우고, 이 글자는 그 바로 아래에 나옵니다.
-// 지금은 보여 주기만 합니다. (얻은 코인을 저장하는 기능은 다음 단계에서 추가)
+// 코인을 언제, 몇 개 얻는지(규칙)와 저장은 CoinManager가 맡고, 이 스크립트는 그 알림을 듣고 보여 주기만 합니다.
 public class CoinPopupSpawner : MonoBehaviour
 {
-    [SerializeField] private ComboManager comboManager;
-    [SerializeField] private FeverManager feverManager;
-
-    [Header("코인 규칙")]
-    [Tooltip("피버 타임에 장애물 하나를 부술 때 얻는 코인 수")]
-    [SerializeField] private int coinsPerObstacle = 1;
+    [SerializeField] private CoinManager coinManager;
 
     [Header("글자 모양")]
     [Tooltip("비워 두면 TextMeshPro 기본 폰트를 씁니다. 점수 글자와 같은 폰트를 넣으세요.")]
@@ -57,19 +52,17 @@ public class CoinPopupSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        comboManager.ObstacleScored += OnObstacleScored;
+        coinManager.CoinEarned += OnCoinEarned;
     }
 
     private void OnDisable()
     {
-        comboManager.ObstacleScored -= OnObstacleScored;
+        coinManager.CoinEarned -= OnCoinEarned;
     }
 
-    private void OnObstacleScored(Vector3 position, int points)
+    private void OnCoinEarned(Vector3 position, int amount)
     {
-        if (feverManager == null || !feverManager.IsFever) return;
-
-        SpawnText(position);
+        SpawnText(position, amount);
         SpawnCoins(position);
         PlayCoinSound();
     }
@@ -86,7 +79,7 @@ public class CoinPopupSpawner : MonoBehaviour
         AudioManager.Instance.PlayCombatSound(clip);
     }
 
-    private void SpawnText(Vector3 position)
+    private void SpawnText(Vector3 position, int amount)
     {
         GameObject popupObject = new GameObject("CoinPopup");
         popupObject.transform.position = position + (Vector3)textOffset;
@@ -98,7 +91,7 @@ public class CoinPopupSpawner : MonoBehaviour
         text.alignment = TextAlignmentOptions.Center;
         text.textWrappingMode = TextWrappingModes.NoWrap;
         text.sortingOrder = textSortingOrder;
-        text.text = $"Coin +{coinsPerObstacle}";
+        text.text = $"Coin +{amount}";
         text.color = textColor;
 
         // 점수 글자와 같은 방식으로 떠오르며 사라집니다.

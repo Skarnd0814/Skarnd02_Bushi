@@ -13,6 +13,9 @@ public class MainMenuController : MonoBehaviour
     [Header("최고 점수 표시 (비워 두면 표시하지 않습니다)")]
     [SerializeField] private TMP_Text bestScoreText;
 
+    [Header("보유 코인 표시 (비워 두면 표시하지 않습니다)")]
+    [SerializeField] private TMP_Text coinText;
+
     [Header("START를 누르면 이동할 씬 이름")]
     [SerializeField] private string inGameSceneName = "InGameScene";
 
@@ -29,6 +32,24 @@ public class MainMenuController : MonoBehaviour
             int bestScore = PlayerPrefs.GetInt(ScoreManager.BestScoreKey, 0);
             bestScoreText.text = $"BEST {bestScore}";
         }
+
+        RefreshCoinText(CoinWallet.Coins);
+    }
+
+    // 나중에 상점에서 코인을 쓰면 숫자가 바로 바뀌도록 지갑의 알림을 듣습니다.
+    private void OnEnable()
+    {
+        CoinWallet.Changed += RefreshCoinText;
+    }
+
+    private void OnDisable()
+    {
+        CoinWallet.Changed -= RefreshCoinText;
+    }
+
+    private void RefreshCoinText(int coins)
+    {
+        if (coinText != null) coinText.text = coins.ToString();
     }
 
     private void StartGame()
