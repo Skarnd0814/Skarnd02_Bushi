@@ -11,6 +11,8 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private ComboManager comboManager;
+    [Tooltip("이번 판에 얻은 코인을 보여 줄 때 연결합니다 (비워 두면 코인 줄을 표시하지 않습니다)")]
+    [SerializeField] private CoinManager coinManager;
 
     [Header("게임 오버 화면")]
     [Tooltip("게임 오버 때 나타날 화면 전체 (어두운 판과 그 안의 모든 것)")]
@@ -20,6 +22,8 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private GameObject newBestLabel;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
+    [Tooltip("결과 글자에서 \"COIN +12\" 줄의 색")]
+    [SerializeField] private Color coinLineColor = new Color(1f, 0.84f, 0.29f);
 
     [Header("게임 오버 때 숨길 것들 (조작 버튼, 콤보 글자 등)")]
     [SerializeField] private GameObject[] hideOnGameOver;
@@ -65,6 +69,13 @@ public class GameOverUI : MonoBehaviour
             $"SCORE {scoreManager.Score}\n" +
             $"BEST {scoreManager.BestScore}\n" +
             $"MAX COMBO {comboManager.MaxCombo}";
+
+        // 이번 판에 얻은 코인은 금색으로 한 줄 더 보여 줍니다. (<color>: 이 부분만 글자 색을 바꾸는 표시)
+        if (coinManager != null)
+        {
+            string hex = ColorUtility.ToHtmlStringRGB(coinLineColor);
+            resultText.text += $"\n<color=#{hex}>COIN +{coinManager.EarnedThisRun}</color>";
+        }
 
         newBestLabel.SetActive(scoreManager.IsNewBest);
         screenRoot.SetActive(true);
