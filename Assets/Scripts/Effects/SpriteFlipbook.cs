@@ -46,6 +46,12 @@ public class SpriteFlipbook : MonoBehaviour
         followOffset = offset;
     }
 
+    // 재생 위치를 앞으로 건너뜁니다. (여러 개를 동시에 만들 때 서로 다른 장면부터 보이게 할 때 사용)
+    public void SkipTime(float seconds)
+    {
+        age += seconds;
+    }
+
     private void LateUpdate()
     {
         age += Time.deltaTime;
