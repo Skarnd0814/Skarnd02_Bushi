@@ -17,7 +17,9 @@ public class DebrisPiece : MonoBehaviour
     private float age;
 
     // position 위치에서 조각 count개를 사방(주로 위쪽)으로 튀깁니다.
-    public static void Burst(Vector3 position, Color[] colors, int count, float size, int sortingOrder)
+    // speedMultiplier: 조각이 튀는 속도 배율 (1 = 보통)
+    public static void Burst(Vector3 position, Color[] colors, int count, float size, int sortingOrder,
+        float speedMultiplier = 1f)
     {
         if (colors == null || colors.Length == 0 || count <= 0) return;
 
@@ -41,7 +43,7 @@ public class DebrisPiece : MonoBehaviour
 
             // 20도 ~ 160도: 오른쪽 위부터 왼쪽 위까지 부채꼴로 튀어 오릅니다.
             float angle = Random.Range(20f, 160f) * Mathf.Deg2Rad;
-            float speed = Random.Range(3f, 7f);
+            float speed = Random.Range(3f, 7f) * speedMultiplier;
 
             DebrisPiece debris = piece.AddComponent<DebrisPiece>();
             debris.spriteRenderer = renderer;

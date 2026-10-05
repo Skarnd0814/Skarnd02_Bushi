@@ -52,7 +52,16 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 | `Audio/AudioManager` | 싱글톤 + DontDestroyOnLoad. BGM 플레이리스트 교대 재생, 스피커 3개(BGM/SFX/Combat), 볼륨 PlayerPrefs 저장, 씬 로드 시 BGM 꺼져 있으면 재시작. `Prefabs/AudioManager`를 두 씬 모두에 배치(복제본은 스스로 삭제) |
 | `Player/PlayerController` | 이동/점프(키보드 ←→ Space + 모바일 `SetMobileMove`/`RequestJump`), Collider Cast 바닥 감지, 화면 밖 이동 제한, `MovementLocked`(공격 중), `Die()` |
 | `Player/PlayerAttack` | Q / `RequestAttack`. 판정 창(hitStart~hitEnd) 동안 OverlapBox, 성공 0.5초 / 실패 3초 쿨타임, `CooldownDisabled`(피버), 이벤트 `AttackJudged(int 파괴수)` |
-| `Player/PlayerAnimator` | Animator 파라미터 `Speed`, `IsGrounded`, `IsAttacking`, `IsDead` 전달 (방향 전환 시 IDLE 끼어듦 방지 grace time) |
+| `Player/PlayerAnimator` | Animator 파라미터 `Speed`, `IsGrounded`, `IsAttacking`, `IsDead` 전달 (방향 전환 시 IDLE 끼어듦 방지 grace time). 스킬은 전환 화살표 없이 `animator.Play(상태 이름)`으로 직접 재생, 스킬 중엔 IsGrounded=true/IsAttacking=false로 고정해 Any State가 끊지 못하게 함 |
+| `Skills/PlayerSkill` (abstract) | 스킬 공통: 번호·이름·아이콘·상태 이름·길이·쿨타임·효과음 칸, 구매 여부(`IsAvailable`), 코루틴 `Perform()`, 사용 중 `MovementLocked` |
+| `Skills/PlayerSkills` | Player의 스킬 관리. 키보드 1/2/3, `RequestSkill(번호)`, 한 번에 하나·공격 중 불가, 죽으면 Cancel. `unlockAllOnPC`(휴대폰에선 무시) |
+| `Skills/CycloneSlashSkill` (1) | 회전 판정 창 동안 머리 중심 정사각형(키 1.44 × 2~3배) OverlapBox, 발밑 흙먼지 SpriteFlipbook |
+| `Skills/TripleComboSkill` (2) | fireTimes 3회 검기 발사(바라보는 방향 + shotAngles) |
+| `Skills/RisingCrescentSkill` (3) | `PlayerController.AirJumpPressed`(공중 점프 입력) 구독 → `Leap()` 후 초승달 검기, 착지 전 1회, 검기 debrisMultiplier 3 |
+| `Skills/SkillProjectile` + `SkillProjectileSettings` | 코드 생성 검기. 관통, 화면 밖에서 소멸, OverlapBox로 `Obstacle.Break(debrisMultiplier)` |
+| `Skills/SkillUnlocks` | 스킬 구매 기록(PlayerPrefs `SkillUnlocked_번호`). 상점에서 `Unlock(번호)` 호출 예정 |
+| `Effects/SpriteFlipbook` | 코드 생성 프레임 애니메이션(1회 후 삭제 / 반복), Follow |
+| `UI/SkillButtonUI` | 스킬 버튼(버튼 Image = 아이콘)의 쿨타임 덮개(버튼 그림 복사, Radial360 자동 설정)·남은 초·누름 어둡게. 스킬 버튼의 Pressed Sprite는 비워 둠. 버튼 입력은 MobileControlButton(Skill1~3) + MobileControls, 미구매 스킬 버튼은 MobileControls가 숨김 |
 | `Player/CooldownBar` | 머리 위 하얀 쿨타임 게이지 |
 | `Obstacle/Obstacle` | Kinematic 낙하, 랜덤 스프라이트/기울기, 콜라이더 자동 맞춤. `Break()`(점수 O) / `Vanish()`(점수 X) / 바닥 도달 시 소멸. 정적 이벤트 `HitPlayer`, `Broken` |
 | `Obstacle/ObstacleSpawner` | 시간 경과로 생성 간격 감소(Lerp), `StartBurst()`(피버 폭우), `ClearAndPause()`(피버 종료 정리), `StopSpawning()` |
@@ -80,8 +89,11 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 
 ## 에셋·설정 메모 (그동안 겪은 문제와 해결)
 
-- 스프라이트: Filter Point, Compression None. 캐릭터 시트마다 그림 크기가 달라 PPU로 보정: Player 100, Player_Run 89(Player.png에서 분리), Player_Jump 75, Player_Attack 79, Player_Die 92. 모두 Bottom 피벗
-- Player_Attack은 프레임별 **Custom 피벗**을 .meta에 직접 맞춰 둠 → Sprite Editor에서 다시 Slice 하면 사라짐. `Player_Attack_6`은 잔여 조각이라 애니메이션에서 제외
+- 스프라이트: Filter Point, Compression None
+- v1.1 캐릭터 시트(`Bushi-idle/run/jump` 256칸, `Bushi-asm_attack/skill1~3` 512칸, 5×5): **PPU 64**, 칸 단위로 자르고 피벗을 .meta에 직접 지정(발밑·몸 중심, jump/skill3 공중 프레임은 장마다 발 높이). 2560px 시트는 Max Size 4096. attack은 22장. **Sprite Editor에서 다시 Slice 금지**
+- 애니메이션: Idle 0~24 @20, Run 0~24 @30, Jump 3~13 @15, Attack 0~21 @38(=0.58초), Skill1 2~20 @30, Skill2 2~21 @25, Skill3 4~14 @20
+- 스킬 이펙트(`Sprites/SkillEffect`, PPU 64): skill1 흙먼지 7장(고리 중심 피벗), skill2 100칸 20장(검기로는 _1~_3 사용), skill3 초승달 6장(그림이 왼쪽을 향함 → `flipSprite` 체크). 아이콘은 `Bushi_Skill_Icon` 한 장에 4개(_0~_2 스킬1~3, _3 빈 나무판), 조작 버튼과 같은 나무판 디자인이라 스킬 버튼의 Image 자체로 사용
+- Player_Die는 아직 옛 캐릭터 그림(PPU 92) — 새 DIE 시트 필요
 - 장애물 PPU: Obstacle01 180, Obstacle02 160
 - Galmuri 도트 폰트(TMP): Render Mode **RASTER**(HINTED 금지), Sampling Point Size는 도트 격자의 정확한 배수 (Galmuri9=10의 배수, Galmuri11=12의 배수, 현재 80/72), Font Size도 같은 배수, Bold 금지
 - Animator Any State 전이는 Can Transition To Self 끄기, Has Exit Time 끄기, Duration 0

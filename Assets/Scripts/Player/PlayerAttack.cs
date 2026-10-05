@@ -33,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AudioClip failSound;
 
     private PlayerController controller;
+    private PlayerSkills skills;
     private ContactFilter2D hitFilter;
     private readonly List<Collider2D> hitResults = new List<Collider2D>();
 
@@ -52,7 +53,9 @@ public class PlayerAttack : MonoBehaviour
     public float CooldownDuration { get; private set; }
     public float CooldownRemaining => Mathf.Max(0f, cooldownEndTime - Time.time);
 
-    public bool CanAttack => !IsAttacking && (CooldownDisabled || Time.time >= cooldownEndTime);
+    // 스킬을 쓰는 동안에는 공격할 수 없습니다.
+    public bool CanAttack => !IsAttacking && (skills == null || !skills.IsUsingSkill)
+        && (CooldownDisabled || Time.time >= cooldownEndTime);
 
     // 공격 한 번의 결과가 정해지면 부순 장애물 개수를 알려 줍니다. (점수, 피버 타임에서 사용)
     public event Action<int> AttackJudged;
@@ -60,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<PlayerController>();
+        skills = GetComponent<PlayerSkills>();
 
         hitFilter = new ContactFilter2D();
         hitFilter.useTriggers = true; // 장애물의 감지 영역(Trigger)도 찾을 수 있게 합니다.

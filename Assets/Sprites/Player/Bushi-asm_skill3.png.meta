@@ -77,15 +77,6 @@ TextureImporter:
   - first:
       213: -8710157937871565303
     second: Bushi-asm_skill3_24
-  - first:
-      213: -8157338749429722123
-    second: Bushi-asm_skill3_25
-  - first:
-      213: 7653366207727667380
-    second: Bushi-asm_skill3_26
-  - first:
-      213: 6098094898737556957
-    second: Bushi-asm_skill3_27
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +106,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
     filterMode: 0
@@ -132,7 +123,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,7 +144,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -166,7 +157,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -179,7 +170,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -197,19 +188,19 @@ TextureImporter:
       name: Bushi-asm_skill3_0
       rect:
         serializedVersion: 2
-        x: 219
-        y: 2129
-        width: 90
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31559df53bc475040800000000000000
+      spriteID: 8617b79fe4693c9dae7ecc1dd61c3c04
       internalID: 4636258674692150547
       vertices: []
       indices: 
@@ -219,19 +210,19 @@ TextureImporter:
       name: Bushi-asm_skill3_1
       rect:
         serializedVersion: 2
-        x: 731
-        y: 2129
-        width: 90
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2209d8f6c76948f80800000000000000
+      spriteID: 01299c41fb6e89f8916b00f4f6afc6f2
       internalID: -8105187968168390622
       vertices: []
       indices: 
@@ -241,19 +232,19 @@ TextureImporter:
       name: Bushi-asm_skill3_2
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 2129
-        width: 105
-        height: 91
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 823622f5a837aab40800000000000000
+      spriteID: 9b0ad1e351c985e3ba9f5ae3c4be604c
       internalID: 5452297337024176936
       vertices: []
       indices: 
@@ -263,19 +254,19 @@ TextureImporter:
       name: Bushi-asm_skill3_3
       rect:
         serializedVersion: 2
-        x: 1755
-        y: 2129
-        width: 102
-        height: 78
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2d2d76a0e5d2f1c0800000000000000
+      spriteID: 0c348fb1a60b68c17b6ad8c269139cac
       internalID: -4471276319182869205
       vertices: []
       indices: 
@@ -285,19 +276,19 @@ TextureImporter:
       name: Bushi-asm_skill3_4
       rect:
         serializedVersion: 2
-        x: 2244
-        y: 2129
-        width: 101
-        height: 71
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4096fa110162792b0800000000000000
+      spriteID: f2cc93e1477e7fa7c528188e1e1acafd
       internalID: -5577947763017029372
       vertices: []
       indices: 
@@ -307,19 +298,19 @@ TextureImporter:
       name: Bushi-asm_skill3_5
       rect:
         serializedVersion: 2
-        x: 176
-        y: 1616
-        width: 121
-        height: 70
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c34bc9e8de26576d0800000000000000
+      spriteID: 5df3bf7794110cef34438ab70c3925f3
       internalID: -2993377604878420932
       vertices: []
       indices: 
@@ -329,19 +320,19 @@ TextureImporter:
       name: Bushi-asm_skill3_6
       rect:
         serializedVersion: 2
-        x: 689
-        y: 1616
-        width: 121
-        height: 70
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72d27256f104da190800000000000000
+      spriteID: 0a365e9f67cef16605b9e6c2b75a8888
       internalID: -7949627263653827289
       vertices: []
       indices: 
@@ -351,19 +342,19 @@ TextureImporter:
       name: Bushi-asm_skill3_7
       rect:
         serializedVersion: 2
-        x: 1202
-        y: 1616
-        width: 120
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c3345de1576c0610800000000000000
+      spriteID: 448f0997c238d0b7f587be730a386965
       internalID: 1588758370126672839
       vertices: []
       indices: 
@@ -373,19 +364,19 @@ TextureImporter:
       name: Bushi-asm_skill3_8
       rect:
         serializedVersion: 2
-        x: 1681
-        y: 1611
-        width: 235
-        height: 125
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.21484}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66c403f6cc5777af0800000000000000
+      spriteID: d9d55a46952d489aae225f654f551b9a
       internalID: -398720521099785114
       vertices: []
       indices: 
@@ -395,19 +386,19 @@ TextureImporter:
       name: Bushi-asm_skill3_9
       rect:
         serializedVersion: 2
-        x: 2175
-        y: 1615
-        width: 257
-        height: 257
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.2832}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11b58c14f08756790800000000000000
+      spriteID: 582fab97fad4f51f5821facfda7fdaa0
       internalID: -7537486394411164911
       vertices: []
       indices: 
@@ -417,19 +408,19 @@ TextureImporter:
       name: Bushi-asm_skill3_10
       rect:
         serializedVersion: 2
-        x: 127
-        y: 1142
-        width: 258
-        height: 218
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.29297}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00c31c5f377c7c0b0800000000000000
+      spriteID: 490f7787f243413483661ce7bbab31ff
       internalID: -5708374701810566144
       vertices: []
       indices: 
@@ -439,19 +430,19 @@ TextureImporter:
       name: Bushi-asm_skill3_11
       rect:
         serializedVersion: 2
-        x: 639
-        y: 1181
-        width: 228
-        height: 179
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.30078}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96ce2a33659b466d0800000000000000
+      spriteID: 6266aef8850400fa90734b4c1dfdcdc6
       internalID: -2998067672037266327
       vertices: []
       indices: 
@@ -461,19 +452,19 @@ TextureImporter:
       name: Bushi-asm_skill3_12
       rect:
         serializedVersion: 2
-        x: 717
-        y: 1175
-        width: 110
-        height: 126
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.29492}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a4de09761511d210800000000000000
+      spriteID: 2768c28a2274d9fe47e0bf68451ceda7
       internalID: 1355888149079708840
       vertices: []
       indices: 
@@ -483,19 +474,19 @@ TextureImporter:
       name: Bushi-asm_skill3_13
       rect:
         serializedVersion: 2
-        x: 1227
-        y: 1172
-        width: 113
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3d2c3c362ce2c8c0800000000000000
+      spriteID: 10e63113f1252270f4cb9c3d85ad6917
       internalID: -3980359471678608069
       vertices: []
       indices: 
@@ -505,19 +496,19 @@ TextureImporter:
       name: Bushi-asm_skill3_14
       rect:
         serializedVersion: 2
-        x: 1739
-        y: 1166
-        width: 111
-        height: 129
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.24219}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f004104b24a43ef20800000000000000
+      spriteID: 329da094bf0d44d2d47ff30b4666a27f
       internalID: 3450683389844209679
       vertices: []
       indices: 
@@ -527,19 +518,19 @@ TextureImporter:
       name: Bushi-asm_skill3_15
       rect:
         serializedVersion: 2
-        x: 2261
-        y: 1146
-        width: 95
-        height: 150
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0cd05d4f27a7a8f0800000000000000
+      spriteID: 1145d0409a4e5e9adfca554f435ca530
       internalID: -529270609590297588
       vertices: []
       indices: 
@@ -549,19 +540,19 @@ TextureImporter:
       name: Bushi-asm_skill3_16
       rect:
         serializedVersion: 2
-        x: 220
-        y: 592
-        width: 82
-        height: 144
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ef03230ca98b0b00800000000000000
+      spriteID: 1794cf46ece05b69edc8b7e89d83d068
       internalID: 795881131041034212
       vertices: []
       indices: 
@@ -571,19 +562,19 @@ TextureImporter:
       name: Bushi-asm_skill3_17
       rect:
         serializedVersion: 2
-        x: 701
-        y: 611
-        width: 8
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85f963124f9b651a0800000000000000
+      spriteID: b362be19806f14b4bb8c34fe3f7a4196
       internalID: -6821060127425650856
       vertices: []
       indices: 
@@ -593,19 +584,19 @@ TextureImporter:
       name: Bushi-asm_skill3_18
       rect:
         serializedVersion: 2
-        x: 730
-        y: 592
-        width: 114
-        height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07a0c6d005b11c950800000000000000
+      spriteID: 68ab8719b09f32bc17f5e468e7a59ad1
       internalID: 6467480570517260912
       vertices: []
       indices: 
@@ -615,19 +606,19 @@ TextureImporter:
       name: Bushi-asm_skill3_19
       rect:
         serializedVersion: 2
-        x: 1171
-        y: 604
-        width: 23
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97a2acac611f9b740800000000000000
+      spriteID: 927b598aab6431b7870d94af2f42f787
       internalID: 5168427127578176121
       vertices: []
       indices: 
@@ -637,19 +628,19 @@ TextureImporter:
       name: Bushi-asm_skill3_20
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 592
-        width: 98
-        height: 94
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9ac02d0dace852f0800000000000000
+      spriteID: 9288aca7a68dd50be1e1c750bcd3def9
       internalID: -983776290586703206
       vertices: []
       indices: 
@@ -659,19 +650,19 @@ TextureImporter:
       name: Bushi-asm_skill3_21
       rect:
         serializedVersion: 2
-        x: 1332
-        y: 590
-        width: 57
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c87919fb3c87d760800000000000000
+      spriteID: ac3e2fb8e98c81dd34297425553dba87
       internalID: 7482603495109523650
       vertices: []
       indices: 
@@ -681,19 +672,19 @@ TextureImporter:
       name: Bushi-asm_skill3_22
       rect:
         serializedVersion: 2
-        x: 1755
-        y: 592
-        width: 90
-        height: 99
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31430d3a14d4576b0800000000000000
+      spriteID: e43d9a7a232d830d22e6e555fbe885bf
       internalID: -5299244442214976493
       vertices: []
       indices: 
@@ -703,19 +694,19 @@ TextureImporter:
       name: Bushi-asm_skill3_23
       rect:
         serializedVersion: 2
-        x: 2267
-        y: 592
-        width: 90
-        height: 99
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62cba9bebf34e8870800000000000000
+      spriteID: 83d6a275629d46591aae8389fbddd07b
       internalID: 8686955480512904230
       vertices: []
       indices: 
@@ -725,130 +716,20 @@ TextureImporter:
       name: Bushi-asm_skill3_24
       rect:
         serializedVersion: 2
-        x: 1322
-        y: 582
-        width: 10
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49805, y: 0.1582}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90ecd9ff08d4f1780800000000000000
+      spriteID: feb2a9a19cb4f17e23af572c1846c3b4
       internalID: -8710157937871565303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bushi-asm_skill3_25
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 81
-        width: 90
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5f356b770af4bce80800000000000000
-      internalID: -8157338749429722123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bushi-asm_skill3_26
-      rect:
-        serializedVersion: 2
-        x: 731
-        y: 81
-        width: 90
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b806934408363a60800000000000000
-      internalID: 7653366207727667380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bushi-asm_skill3_27
-      rect:
-        serializedVersion: 2
-        x: 1244
-        y: 81
-        width: 88
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dddafd55009c0a450800000000000000
-      internalID: 6098094898737556957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bushi-asm_skill3_28
-      rect:
-        serializedVersion: 2
-        x: 1755
-        y: 81
-        width: 90
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d08d6c43e95fbaa4dbc3e9a9badb9c0c
-      internalID: -1902264491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bushi-asm_skill3_29
-      rect:
-        serializedVersion: 2
-        x: 2267
-        y: 81
-        width: 90
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c01637f67aae4c4d8d2fcd78fa9f347
-      internalID: -618396824
       vertices: []
       indices: 
       edges: []
@@ -887,11 +768,6 @@ TextureImporter:
       Bushi-asm_skill3_22: -5299244442214976493
       Bushi-asm_skill3_23: 8686955480512904230
       Bushi-asm_skill3_24: -8710157937871565303
-      Bushi-asm_skill3_25: -8157338749429722123
-      Bushi-asm_skill3_26: 7653366207727667380
-      Bushi-asm_skill3_27: 6098094898737556957
-      Bushi-asm_skill3_28: -1902264491
-      Bushi-asm_skill3_29: -618396824
       Bushi-asm_skill3_3: -4471276319182869205
       Bushi-asm_skill3_4: -5577947763017029372
       Bushi-asm_skill3_5: -2993377604878420932

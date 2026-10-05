@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 모바일 조작 버튼 하나에 붙는 스크립트입니다. (← → 점프 공격)
+// 모바일 조작 버튼 하나에 붙는 스크립트입니다. (← → 점프 공격 스킬1~3)
 // 손가락이 버튼 위에 있는지는 MobileControls가 매 순간 직접 확인하고, 이 스크립트는
 // "어떤 버튼인지"와 "눌렸을 때의 모습"만 담당합니다.
 [RequireComponent(typeof(Image))]
 public class MobileControlButton : MonoBehaviour
 {
-    public enum ButtonType { Left, Right, Jump, Attack }
+    public enum ButtonType { Left, Right, Jump, Attack, Skill1, Skill2, Skill3 }
 
     [SerializeField] private ButtonType buttonType;
 

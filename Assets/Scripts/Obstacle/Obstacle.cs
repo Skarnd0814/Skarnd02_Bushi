@@ -104,6 +104,12 @@ public class Obstacle : MonoBehaviour
 
     public void Break()
     {
+        Break(1f);
+    }
+
+    // debrisMultiplier: 조각을 몇 배 많이, 세게 튀길지 (1 = 보통). 스킬 Rising Crescent에서 크게 씁니다.
+    public void Break(float debrisMultiplier)
+    {
         if (IsBroken) return;
         IsBroken = true;
 
@@ -112,8 +118,10 @@ public class Obstacle : MonoBehaviour
             AudioManager.Instance.PlayCombatSound(breakSound);
         }
 
-        DebrisPiece.Burst(spriteRenderer.bounds.center, debrisColors, debrisCount, debrisSize,
-            spriteRenderer.sortingOrder + 1);
+        int count = Mathf.RoundToInt(debrisCount * debrisMultiplier);
+        float speedMultiplier = Mathf.Sqrt(Mathf.Max(1f, debrisMultiplier)); // 3배 → 약 1.7배 빠르게
+        DebrisPiece.Burst(spriteRenderer.bounds.center, debrisColors, count, debrisSize,
+            spriteRenderer.sortingOrder + 1, speedMultiplier);
 
         Broken?.Invoke(this);
         Destroy(gameObject);

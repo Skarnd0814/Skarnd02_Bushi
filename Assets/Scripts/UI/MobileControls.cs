@@ -4,14 +4,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
-// 모바일 조작 버튼 4개를 모아서 플레이어에게 전달하는 스크립트입니다.
+// 모바일 조작 버튼(← → 점프 공격 + 스킬 버튼)을 모아서 플레이어에게 전달하는 스크립트입니다.
 // 매 순간 "화면에 닿아 있는 손가락들이 어느 버튼 위에 있는지"를 직접 확인합니다.
 // 그래서 손가락을 떼지 않고 ← 에서 → 로 미끄러뜨려도 바로 방향이 바뀝니다.
 // 키보드 조작과 함께 써도 문제없습니다.
+// 스킬 버튼은 그 스킬을 구매(잠금 해제)했을 때만 화면에 보입니다.
 public class MobileControls : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
     [SerializeField] private PlayerAttack playerAttack;
+    [Tooltip("스킬 버튼을 쓸 때 연결합니다 (Player 오브젝트)")]
+    [SerializeField] private PlayerSkills playerSkills;
 
     [Header("터치 인식")]
     [Tooltip("버튼보다 얼마나 넓게 터치를 인식할지 (Canvas 기준 크기). 버튼 사이 틈을 메워 줍니다.")]
@@ -56,8 +59,17 @@ public class MobileControls : MonoBehaviour
         // 일시정지 중(게임 속 시간이 멈춤)에는 버튼을 누르지 않은 것으로 봅니다.
         bool canControl = Time.timeScale > 0f;
 
+        UpdateSkillButtonVisibility();
+
         foreach (MobileControlButton button in buttons)
         {
+            // 숨겨진 버튼(구매하지 않은 스킬)은 눌리지 않습니다.
+            if (!button.gameObject.activeInHierarchy)
+            {
+                button.SetPressed(false);
+                continue;
+            }
+
             bool held = canControl && IsAnyPointerInside(button);
             if (held == button.IsPressed) continue;
 
@@ -115,6 +127,36 @@ public class MobileControls : MonoBehaviour
             case MobileControlButton.ButtonType.Attack:
                 playerAttack.RequestAttack();
                 break;
+            default:
+                int skillNumber = GetSkillNumber(type);
+                if (skillNumber > 0 && playerSkills != null) playerSkills.RequestSkill(skillNumber);
+                break;
+        }
+    }
+
+    // 스킬 버튼 종류를 스킬 번호로 바꿉니다. (스킬 버튼이 아니면 0)
+    private static int GetSkillNumber(MobileControlButton.ButtonType type)
+    {
+        switch (type)
+        {
+            case MobileControlButton.ButtonType.Skill1: return 1;
+            case MobileControlButton.ButtonType.Skill2: return 2;
+            case MobileControlButton.ButtonType.Skill3: return 3;
+            default: return 0;
+        }
+    }
+
+    // 구매한(또는 PC 테스트로 열린) 스킬의 버튼만 보이게 합니다.
+    private void UpdateSkillButtonVisibility()
+    {
+        foreach (MobileControlButton button in buttons)
+        {
+            int skillNumber = GetSkillNumber(button.Type);
+            if (skillNumber == 0) continue;
+
+            PlayerSkill skill = playerSkills != null ? playerSkills.GetSkill(skillNumber) : null;
+            bool visible = skill != null && skill.IsAvailable;
+            if (button.gameObject.activeSelf != visible) button.gameObject.SetActive(visible);
         }
     }
 

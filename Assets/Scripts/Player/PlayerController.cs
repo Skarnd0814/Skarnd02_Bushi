@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
     // 장애물에 맞아 죽으면 true가 됩니다. 더 이상 조작할 수 없습니다.
     public bool IsDead { get; private set; }
+
+    // 공중에서 점프 버튼을 눌렀을 때 알려 줍니다. (공중 스킬 Rising Crescent에서 사용)
+    public event Action AirJumpPressed;
 
     private void Awake()
     {
@@ -111,10 +115,14 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = jumpForce;
         }
+        bool airJumpPressed = jumpRequested && !IsGrounded && !MovementLocked;
         jumpRequested = false;
 
         rb.linearVelocity = velocity;
         KeepInsideScreen();
+
+        // 속도를 다 정한 다음에 알려야, 스킬이 바꾼 속도(한 번 더 도약)가 덮어써지지 않습니다.
+        if (airJumpPressed) AirJumpPressed?.Invoke();
     }
 
     private float ReadKeyboardMove()
@@ -180,6 +188,13 @@ public class PlayerController : MonoBehaviour
 
         // 위로 솟구치던 중이었다면 멈추고 바로 떨어지게 합니다.
         rb.linearVelocity = new Vector2(0f, Mathf.Min(rb.linearVelocity.y, 0f));
+    }
+
+    // 스킬이 호출합니다. 지금 위치에서 위로 한 번 더 뛰어오릅니다. (공중에서도 가능)
+    public void Leap(float upwardSpeed)
+    {
+        if (IsDead) return;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, upwardSpeed);
     }
 
     // ---------- 모바일 버튼에서 호출할 함수 (나중에 연결) ----------
