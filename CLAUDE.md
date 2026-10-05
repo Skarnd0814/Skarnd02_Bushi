@@ -64,6 +64,9 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 | `Effects/CoinPopupSpawner` + `FlyingCoin` | `CoinManager.CoinEarned` 수신 → "Coin +N" 월드 TMP(점수 글자 아래) + 회전 코인(Coin_Split_0~7) 튀어나옴 + 코인 효과음(minSoundInterval로 겹침 제한). 표시만 담당 |
 | `Coins/CoinManager` | InGame. `ObstacleScored` 수신 → 피버 중이면 `coinsPerObstacle`만큼 `CoinWallet.Add`, `EarnedThisRun`, 이벤트 `CoinEarned(위치, 개수)`. 게임 오버·OnDestroy·OnApplicationPause에서 저장 |
 | `Coins/CoinWallet` | static 지갑. PlayerPrefs `Coins`, `Add`(메모리만) / `Save` / `TrySpend`(상점용), 이벤트 `Changed`. 메인 메뉴 `MainMenuController.coinText`에 표시 |
+| `UI/SkillShopPopup` + `SkillShopItem` | 메인 메뉴 상점 팝업. 상품 칸(스킬 번호·가격)마다 `CoinWallet.TrySpend` → `SkillUnlocks.Unlock`, OWNED/가격 표시, 안내 글자(PURCHASED! / NOT ENOUGH COINS), 구매음은 `AudioManager.PlaySfx`. MainMenuController의 shopButton/shopPopup |
+| `Editor/SkillShopBuilder` | 메뉴 **Bushi > 스킬 상점 UI 만들기**: MainMenuScene에 ShopButton(오른쪽 위) + SkillShopPopup(ShopUI 598×394의 2배 패널, 상품 3칸)을 자동 생성·연결 |
+| `Editor/BushiTestTools` | 메뉴 **Bushi > 테스트**: 코인 +500, 코인 0, 스킬 구매 기록 초기화 |
 | `UI/SkillButtonUI` | 스킬 버튼(버튼 Image = 아이콘)의 쿨타임 덮개(버튼 그림 복사, Radial360 자동 설정)·남은 초·누름 어둡게. 스킬 버튼의 Pressed Sprite는 비워 둠. 버튼 입력은 MobileControlButton(Skill1~3) + MobileControls, 미구매 스킬 버튼은 MobileControls가 숨김 |
 | `Player/CooldownBar` | 머리 위 하얀 쿨타임 게이지 |
 | `Obstacle/Obstacle` | Kinematic 낙하, 랜덤 스프라이트/기울기, 콜라이더 자동 맞춤. `Break()`(점수 O) / `Vanish()`(점수 X) / 바닥 도달 시 소멸. 정적 이벤트 `HitPlayer`, `Broken` |
@@ -107,5 +110,6 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 ## 남은 일 / 아이디어
 
 - 배포된 v1.0 APK는 피버 발동 콤보 3으로 빌드되었을 수 있음 → 다음 릴리스(v1.1)에서 5로 반영 (릴리스 설명의 "10콤보" 문구도 5로 수정 필요)
-- 다음 단계: 스킬 상점(`CoinWallet.TrySpend` + `SkillUnlocks.Unlock`), 게임 오버 화면에 이번 판 코인(`CoinManager.EarnedThisRun`) 표시 검토
+- 스킬 가격(설계값): 1번 100, 2번 150, 3번 200 코인. Galmuri11 TMP 아틀라스는 영문만(정적 98자) → UI 글자는 영어로
+- 다음 단계 후보: 게임 오버 화면에 이번 판 코인(`CoinManager.EarnedThisRun`) 표시, 출시 전 `PlayerSkills.unlockAllOnPC` 확인
 - 아이디어: 새 장애물·아이템(방패, 자석), 일시정지 창에 볼륨 설정, Play 스토어 출시(정식 Keystore, Bundle Version Code 증가)
