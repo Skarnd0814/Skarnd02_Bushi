@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-// 피버 타임에 장애물을 부수면, 부순 자리에서 코인이 터져 나오고 "Coin +1" 글자가 떠오르게 하는 스크립트입니다.
+// 피버 타임에 장애물을 부수면, 부순 자리에서 코인이 터져 나오고 "Coin +1" 글자가 떠오르며 코인 소리가 나게 하는 스크립트입니다.
 // 점수 글자("+260")는 ScorePopupSpawner가 따로 띄우고, 이 글자는 그 바로 아래에 나옵니다.
 // 지금은 보여 주기만 합니다. (얻은 코인을 저장하는 기능은 다음 단계에서 추가)
 public class CoinPopupSpawner : MonoBehaviour
@@ -47,6 +47,14 @@ public class CoinPopupSpawner : MonoBehaviour
     [Tooltip("숫자가 클수록 다른 그림보다 앞에 보입니다 (글자보다 작게)")]
     [SerializeField] private int coinSortingOrder = 29;
 
+    [Header("소리 (비워 두면 재생하지 않습니다)")]
+    [Tooltip("코인을 얻을 때 효과음. 여러 개 넣으면 그중 하나를 랜덤으로 재생합니다. (설정창의 EFFECT 볼륨을 따릅니다)")]
+    [SerializeField] private AudioClip[] coinSounds;
+    [Tooltip("소리가 너무 겹치지 않도록, 한 번 재생한 뒤 몇 초 동안은 다시 재생하지 않을지 (0 = 부술 때마다 재생). 피버 시작 때 장애물이 한꺼번에 부서지면 소리가 수십 번 겹칠 수 있어서 둔 칸입니다.")]
+    [SerializeField] private float minSoundInterval = 0.05f;
+
+    private float lastSoundTime = float.NegativeInfinity;
+
     private void OnEnable()
     {
         comboManager.ObstacleScored += OnObstacleScored;
@@ -63,6 +71,19 @@ public class CoinPopupSpawner : MonoBehaviour
 
         SpawnText(position);
         SpawnCoins(position);
+        PlayCoinSound();
+    }
+
+    private void PlayCoinSound()
+    {
+        if (coinSounds == null || coinSounds.Length == 0 || AudioManager.Instance == null) return;
+        if (Time.time - lastSoundTime < minSoundInterval) return;
+
+        AudioClip clip = coinSounds[Random.Range(0, coinSounds.Length)];
+        if (clip == null) return;
+
+        lastSoundTime = Time.time;
+        AudioManager.Instance.PlayCombatSound(clip);
     }
 
     private void SpawnText(Vector3 position)
