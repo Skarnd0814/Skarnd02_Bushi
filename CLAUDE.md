@@ -78,7 +78,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). 이 파일은 다음 세션이
 | `Effects/*` | `DebrisPiece`(코드 생성 조각), `CameraShake`(파괴/피버/게임오버 이벤트 구독), `ScorePopupSpawner`+`ScorePopup`(월드 TMP "+130") |
 | `UI/MobileControls` + `MobileControlButton` | 매 프레임 터치/마우스 위치를 직접 검사(손가락 미끄러뜨려 버튼 전환 가능), touchPadding, 공격 버튼 쿨타임 색 |
 | `UI/PauseMenu` | Time.timeScale=0 일시정지, Esc, OnApplicationPause 자동 정지, 씬 전환 전 timeScale 복구, 선택 해제 |
-| `UI/GameOverUI` | 1.2초 뒤 결과 화면(SCORE/BEST/MAX COMBO, NEW BEST), RESTART/MAIN, 게임 오버 시 숨길 UI 목록. coinManager 연결 시 금색 `COIN +이번 판` 줄 추가 (rich text) |
+| `UI/GameOverUI` | 1.2초 뒤 결과 화면(SCORE/BEST, NEW BEST — MAX COMBO 줄은 v1.1에서 제거), RESTART/MAIN, 게임 오버 시 숨길 UI 목록. coinManager 연결 시 금색 `COIN +이번 판` 줄 추가 (rich text) |
 | `UI/CoinWalletDisplay` | TMP 글자에 붙이면 보유 코인 표시, `CoinWallet.Changed`로 즉시 갱신 (인게임 점수판 옆 CoinWallet) |
 | `UI/MainMenuController`, `SettingsPopup`, `ButtonClickSound`, `SafeAreaFitter` | 메인 메뉴 버튼/BEST, 볼륨 팝업, 버튼 클릭음, 안전 영역 |
 | `BackgroundFitter` | [ExecuteAlways] 화면 비율에 맞춰 배경을 덮도록 스케일 |
