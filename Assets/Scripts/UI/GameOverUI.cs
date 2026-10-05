@@ -10,7 +10,6 @@ public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ScoreManager scoreManager;
-    [SerializeField] private ComboManager comboManager;
     [Tooltip("이번 판에 얻은 코인을 보여 줄 때 연결합니다 (비워 두면 코인 줄을 표시하지 않습니다)")]
     [SerializeField] private CoinManager coinManager;
 
@@ -67,8 +66,7 @@ public class GameOverUI : MonoBehaviour
 
         resultText.text =
             $"SCORE {scoreManager.Score}\n" +
-            $"BEST {scoreManager.BestScore}\n" +
-            $"MAX COMBO {comboManager.MaxCombo}";
+            $"BEST {scoreManager.BestScore}";
 
         // 이번 판에 얻은 코인은 금색으로 한 줄 더 보여 줍니다. (<color>: 이 부분만 글자 색을 바꾸는 표시)
         if (coinManager != null)
