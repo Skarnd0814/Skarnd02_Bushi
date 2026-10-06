@@ -2327,8 +2327,8 @@ MonoBehaviour:
   messageDuration: 1.5
   successColor: {r: 0.15, g: 0.45, b: 0.1, a: 1}
   failColor: {r: 0.7, g: 0.15, b: 0.1, a: 1}
-  purchaseSound: {fileID: 8300000, guid: acdbd851b3a03c542b1fb64fdd63b762, type: 3}
-  notEnoughSound: {fileID: 8300000, guid: 23db18248e9b78b48afb0cb37d55bd6a, type: 3}
+  purchaseSound: {fileID: 8300000, guid: c80ddc23e30de804c9d6d37da3f27a94, type: 3}
+  notEnoughSound: {fileID: 8300000, guid: 9555128a7430eee439c1bff76569319c, type: 3}
 --- !u!224 &632406500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5056,8 +5056,8 @@ RectTransform:
   - {fileID: 268460635}
   - {fileID: 37605441}
   - {fileID: 946766441}
-  - {fileID: 313529473}
   - {fileID: 1868661520}
+  - {fileID: 313529473}
   - {fileID: 632406500}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5809,7 +5809,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868661519}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
