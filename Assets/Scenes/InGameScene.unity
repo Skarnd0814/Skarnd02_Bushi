@@ -608,7 +608,7 @@ MonoBehaviour:
   skillSound: {fileID: 8300000, guid: ca2699b9171f4e34f9569376da451b27, type: 3}
   hitStartTime: 0.27
   hitEndTime: 0.57
-  characterHeight: 1.44
+  characterHeight: 2
   sizeMultiplier: 2.5
   headOffset: {x: 0, y: 1.2}
   dustFrames:
@@ -2133,7 +2133,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6492803, y: 1.6492803, z: 1}
+  m_LocalScale: {x: 1.7361113, y: 1.7361113, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
