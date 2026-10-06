@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // 앱을 켜면 가장 먼저 나오는 로딩(타이틀) 화면을 담당하는 스크립트입니다. TitleScene에서만 씁니다.
 // 1) 검은 화면에서 배경 + 큰 타이틀 + 제작자 이름이 서서히 나타납니다.
+//    (로딩 화면은 처음부터 완전히 불투명하고, 그 위를 덮은 검은 막이 걷히는 방식입니다.
+//     로딩 화면을 투명하게 시작하면, 휴대폰처럼 메인 메뉴가 빨리 열리는 기기에서 뒤의 메인 메뉴가 비쳐 보입니다)
 // 2) 그동안 메인 메뉴를 뒤에서 미리 불러 둡니다. (Additive: 지금 화면을 지우지 않고 겹쳐서 불러오기)
 // 3) 제작자 이름이 사라집니다.
 // 4) 타이틀이 작아지면서 메인 메뉴 타이틀 자리로 이동하고, 동시에 로딩 배경이 사라지며 메인 메뉴가 드러납니다.
@@ -14,7 +17,7 @@ public class TitleLoader : MonoBehaviour
     [SerializeField] private string nextSceneName = "MainMenuScene";
 
     [Header("화면 연결")]
-    [Tooltip("로딩 화면 전체 (처음에 검은 화면에서 서서히 나타나게 할 때 사용)")]
+    [Tooltip("로딩 화면 전체 (시작할 때 완전히 불투명하게 맞춥니다)")]
     [SerializeField] private CanvasGroup screenGroup;
     [Tooltip("로딩 배경 (마지막에 서서히 사라짐)")]
     [SerializeField] private CanvasGroup backgroundGroup;
@@ -26,7 +29,7 @@ public class TitleLoader : MonoBehaviour
     [SerializeField] private AudioListener loadingListener;
 
     [Header("시간 (초)")]
-    [Tooltip("처음에 검은 화면에서 나타나는 시간")]
+    [Tooltip("처음에 검은 막이 걷히며 로딩 화면이 나타나는 시간")]
     [SerializeField] private float fadeInDuration = 0.5f;
     [Tooltip("로딩 화면을 최소한 이만큼은 보여 줍니다 (메인 메뉴를 더 빨리 불러와도 기다림)")]
     [SerializeField] private float minShowTime = 2f;
@@ -34,6 +37,15 @@ public class TitleLoader : MonoBehaviour
     [SerializeField] private float creatorFadeDuration = 0.5f;
     [Tooltip("타이틀이 메인 메뉴 자리로 이동하면서 배경이 사라지는 시간")]
     [SerializeField] private float moveDuration = 0.9f;
+
+    private CanvasGroup blackCover;
+
+    // Awake는 첫 화면이 그려지기 전에 실행됩니다. 여기서 로딩 화면을 불투명하게 하고 검은 막을 덮어 둡니다.
+    private void Awake()
+    {
+        if (screenGroup != null) screenGroup.alpha = 1f;
+        blackCover = CreateBlackCover();
+    }
 
     private void OnEnable()
     {
@@ -58,8 +70,9 @@ public class TitleLoader : MonoBehaviour
         // 메인 메뉴를 뒤에서 미리 불러오기 시작합니다. 로딩 화면이 맨 앞에 있어서 아직 보이지 않습니다.
         AsyncOperation loading = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
 
-        // 1) 검은 화면에서 서서히 나타나기
-        yield return Fade(screenGroup, 0f, 1f, fadeInDuration);
+        // 1) 검은 막이 걷히면서 로딩 화면이 나타나기
+        yield return Fade(blackCover, 1f, 0f, fadeInDuration);
+        Destroy(blackCover.gameObject);
 
         // 2) 메인 메뉴를 다 불러오고, 최소 시간이 지날 때까지 기다리기
         while (!loading.isDone || Time.unscaledTime - startTime < minShowTime)
@@ -111,6 +124,24 @@ public class TitleLoader : MonoBehaviour
         title.position = toPosition;
         title.localScale = Vector3.one * toScale;
         if (backgroundGroup != null) backgroundGroup.alpha = 0f;
+    }
+
+    // 로딩 화면 맨 앞에 화면 전체를 덮는 검은 막을 만듭니다.
+    private CanvasGroup CreateBlackCover()
+    {
+        GameObject cover = new GameObject("BlackCover", typeof(RectTransform));
+        cover.layer = gameObject.layer;
+        RectTransform rect = (RectTransform)cover.transform;
+        rect.SetParent(transform, false);
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+        rect.SetAsLastSibling();
+
+        Image image = cover.AddComponent<Image>();
+        image.color = Color.black;
+        return cover.AddComponent<CanvasGroup>();
     }
 
     private static IEnumerator Fade(CanvasGroup group, float from, float to, float duration)

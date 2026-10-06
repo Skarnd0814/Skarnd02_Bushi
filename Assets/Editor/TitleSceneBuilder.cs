@@ -118,7 +118,7 @@ public static class TitleSceneBuilder
         scaler.matchWidthOrHeight = 0.5f;
         canvasObject.AddComponent<GraphicRaycaster>(); // 로딩 중에는 뒤의 메인 메뉴 버튼이 눌리지 않게 막습니다.
         CanvasGroup screenGroup = canvasObject.AddComponent<CanvasGroup>();
-        screenGroup.alpha = 0f; // 검은 화면에서 시작
+        // 시작할 때 검은 막은 TitleLoader가 코드로 덮습니다. (로딩 화면 자체는 항상 불투명해야 뒤의 메인 메뉴가 비치지 않습니다)
 
         // 배경: 인게임 배경 그림을 화면 비율에 맞춰 빈틈없이 덮습니다. (메인 메뉴 배경과 같은 방식)
         RectTransform background = CreateRect("Background", canvasObject.transform, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1920f, 1080f));
