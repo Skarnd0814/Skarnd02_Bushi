@@ -82,7 +82,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 | `UI/GameOverUI` | 1.2초 뒤 결과 화면(SCORE/BEST, NEW BEST — MAX COMBO 줄은 v1.1에서 제거), RESTART/MAIN, 게임 오버 시 숨길 UI 목록. coinManager 연결 시 금색 `COIN +이번 판` 줄 추가 (rich text) |
 | `UI/CoinWalletDisplay` | TMP 글자에 붙이면 보유 코인 표시, `CoinWallet.Changed`로 즉시 갱신 (인게임 점수판 옆 CoinWallet) |
 | `UI/MainMenuController`, `SettingsPopup`, `ButtonClickSound`, `SafeAreaFitter` | 메인 메뉴 버튼/BEST, 볼륨 팝업, 버튼 클릭음, 안전 영역 |
-| `UI/TitleLoader` | TitleScene. 메인 메뉴를 Additive로 미리 로드 → 검은 화면 페이드 인(0.5) → 최소 2초 → 제작자 이름 페이드 아웃(0.5) → 타이틀이 `MainMenuTitle` 자리·크기로 이동·축소하며 배경 페이드 아웃(0.9) → TitleScene 언로드. 메인 메뉴가 열리면 로딩 AudioListener 끔 |
+| `UI/TitleLoader` | TitleScene. 메인 메뉴를 Additive로 미리 로드 → 불투명한 로딩 화면 위 검은 막(코드 생성 BlackCover)이 걷힘(0.5; 로딩 화면을 투명하게 시작하면 휴대폰에서 먼저 열린 메인 메뉴가 비쳐 보였음) → 최소 2초 → 제작자 이름 페이드 아웃(0.5) → 타이틀이 `MainMenuTitle` 자리·크기로 이동·축소하며 배경 페이드 아웃(0.9) → TitleScene 언로드. 메인 메뉴가 열리면 로딩 AudioListener 끔 |
 | `UI/MainMenuTitle` | 메인 메뉴 타이틀 표시용 이름표(RectTransform 제공, 이동 중 숨김) |
 | `Editor/TitleSceneBuilder` | 메뉴 **Bushi > 타이틀(로딩) 화면 만들기**: MainMenu에 GameTitle 추가, TitleScene 생성, 빌드 씬 순서 Title→MainMenu→InGame. 메뉴 **Bushi > 제작자 이름에 검은 배경 넣기**로 기존 TitleScene에 상자 추가 |
 | `BackgroundFitter` | [ExecuteAlways] 화면 비율에 맞춰 배경을 덮도록 스케일 |
