@@ -40,8 +40,9 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 
 ## 씬 구성
 
-- `MainMenuScene` (Build Index 0): 배경, START / SETTINGS 버튼, SettingsPopup(BGM/SFX/EFFECT 슬라이더), BEST 점수 표시, AudioManager
-- `InGameScene` (Build Index 1): Player, Ground(Tiled 나무 바닥, 폭 30), Background(BackgroundFitter), ObstacleSpawner,
+- `TitleScene` (Build Index 0): 앱 첫 화면(로딩). LoadingCamera(Depth -10, 검은 배경) + LoadingCanvas(Overlay, Sort Order 100: PlayBG 배경, 큰 타이틀 ×3, 제작자 이름 "by Skarnd0814" — CreatorBackground(검은 반투명 상자, HorizontalLayoutGroup+ContentSizeFitter로 글자에 맞춤, CanvasGroup) 안의 CreatorText) + `TitleLoader`
+- `MainMenuScene` (Build Index 1): GameTitle(타이틀 ×2, `MainMenuTitle`), 배경, START / SETTINGS 버튼, SettingsPopup(BGM/SFX/EFFECT 슬라이더), BEST 점수 표시, AudioManager
+- `InGameScene` (Build Index 2): Player, Ground(Tiled 나무 바닥, 폭 30), Background(BackgroundFitter), ObstacleSpawner,
   GameManager, ScoreManager, ComboManager, FeverManager, ScorePopupSpawner, AudioManager(프리팹 복제본),
   Canvas(SafeArea 안에 ScorePanel/ComboText/FeverText/MobileControls/PauseButton, 그 밖에 PauseScreen, GameOverScreen)
 
@@ -81,6 +82,9 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 | `UI/GameOverUI` | 1.2초 뒤 결과 화면(SCORE/BEST, NEW BEST — MAX COMBO 줄은 v1.1에서 제거), RESTART/MAIN, 게임 오버 시 숨길 UI 목록. coinManager 연결 시 금색 `COIN +이번 판` 줄 추가 (rich text) |
 | `UI/CoinWalletDisplay` | TMP 글자에 붙이면 보유 코인 표시, `CoinWallet.Changed`로 즉시 갱신 (인게임 점수판 옆 CoinWallet) |
 | `UI/MainMenuController`, `SettingsPopup`, `ButtonClickSound`, `SafeAreaFitter` | 메인 메뉴 버튼/BEST, 볼륨 팝업, 버튼 클릭음, 안전 영역 |
+| `UI/TitleLoader` | TitleScene. 메인 메뉴를 Additive로 미리 로드 → 검은 화면 페이드 인(0.5) → 최소 2초 → 제작자 이름 페이드 아웃(0.5) → 타이틀이 `MainMenuTitle` 자리·크기로 이동·축소하며 배경 페이드 아웃(0.9) → TitleScene 언로드. 메인 메뉴가 열리면 로딩 AudioListener 끔 |
+| `UI/MainMenuTitle` | 메인 메뉴 타이틀 표시용 이름표(RectTransform 제공, 이동 중 숨김) |
+| `Editor/TitleSceneBuilder` | 메뉴 **Bushi > 타이틀(로딩) 화면 만들기**: MainMenu에 GameTitle 추가, TitleScene 생성, 빌드 씬 순서 Title→MainMenu→InGame. 메뉴 **Bushi > 제작자 이름에 검은 배경 넣기**로 기존 TitleScene에 상자 추가 |
 | `BackgroundFitter` | [ExecuteAlways] 화면 비율에 맞춰 배경을 덮도록 스케일 |
 
 기능끼리는 **이벤트(알림)** 로 연결되어 있다. 새 기능은 기존 코드 수정 대신 이벤트 구독으로 덧붙이는 방식을 우선한다.
@@ -102,6 +106,7 @@ v1.0을 GitHub Release로 배포함 (2026-10-05). v1.1(스킬·코인·상점·�
 - 스킬 이펙트(`Sprites/SkillEffect`, PPU 64): skill1 흙먼지 7장(고리 중심 피벗), skill2 100칸 20장(검기로는 _1~_3 사용), skill3 초승달 6장(그림이 왼쪽을 향함 → `flipSprite` 체크). 아이콘은 `Bushi_Skill_Icon` 한 장에 4개(_0~_2 스킬1~3, _3 빈 나무판), 조작 버튼과 같은 나무판 디자인이라 스킬 버튼의 Image 자체로 사용
 - Player_Die는 옛 캐릭터 그림(PPU 92)을 그대로 사용 — **사용자 결정으로 앞으로도 교체하지 않음** (교체 제안·알려진 문제로 언급하지 말 것)
 - 장애물 PPU: Obstacle01 180, Obstacle02 160
+- `Bushi_Title`: 670×372 중 글자 부분만 417×186으로 자름(.meta 직접 지정). UI 크기는 이 배수로(메인 메뉴 834×372, 로딩 1251×558) — 두 크기의 비율이 같아야 이동 애니메이션이 정확히 겹침
 - Galmuri 도트 폰트(TMP): Render Mode **RASTER**(HINTED 금지), Sampling Point Size는 도트 격자의 정확한 배수 (Galmuri9=10의 배수, Galmuri11=12의 배수, 현재 80/72), Font Size도 같은 배수, Bold 금지
 - Animator Any State 전이는 Can Transition To Self 끄기, Has Exit Time 끄기, Duration 0
 - Hierarchy 아래쪽이 앞에 그려진다 (패널은 텍스트보다 위에 둘 것)
